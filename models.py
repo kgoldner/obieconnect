@@ -1,11 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
-
-class User(models.Model):
-	username = models.CharField(max_length=8)
-	# can this be an obie id log-in?
-	password = models.CharField(max_length=20)
+class ObieConnectProfile(models.Model):
+	user = models.OneToOneField(User, related_name='obieconnectprofile')
 	bio = models.TextField(max_length=500)
 	def __unicode__(self):
 		return self.username
@@ -36,5 +33,5 @@ class Course(models.Model):
 		return self.department + self.level
 	
 # django contrib comments - documentation (batteries included)
-# django contrib auth
+# django contrib auth - we did this.
 # django registration
