@@ -10,6 +10,7 @@ class ObieConnectProfile(models.Model):
 class Department(models.Model):
 	fullname = models.CharField(max_length=30)
 	shortname = models.CharField(max_length=4)
+	slug = models.SlugField(max_length=100)
 	def __unicode__(self):
 		return self.shortname	
 			
@@ -19,6 +20,7 @@ class Professor(models.Model):
 	department = models.ManyToManyField(Department, related_name="professors")
 	email = models.EmailField(max_length=100)
 	office = models.CharField(max_length=100)
+	slug = models.SlugField(max_length=100)
 	def __unicode__(self):
 		return self.lastname
 
@@ -29,6 +31,7 @@ class Course(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField(max_length=500)
 	professor = models.ManyToManyField(Professor, related_name="courses")
+	slug = models.SlugField(max_length=100)
 	def __unicode__(self):
 		return self.department + self.level
 	
