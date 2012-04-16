@@ -11,7 +11,7 @@ class DepartmentAdmin(admin.ModelAdmin):
 #    prepopulated_fields = {"slug": ("department" + "level",)}
     
 admin.site.register(Department, DepartmentAdmin)
-admin.site.register(Professor, ProfessorAdmin)
-admin.site.register(Course, CourseAdmin)
+admin.site.register(Professor)
+admin.site.register(Course)
  
      
