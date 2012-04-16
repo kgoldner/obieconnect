@@ -1,5 +1,5 @@
 from django.contrib import admin
-from bookshelf.models import Department, Professor, Course
+from obieconnect.models import Department, Professor, Course
 
 class DepartmentAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("shortname",)}
