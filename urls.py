@@ -5,7 +5,7 @@ urlpatterns = patterns('',
     url(r'^$', main_page),
     
     url(r'^register/$', register),
-    url(r'^login/$', 'django.contrib.auth.views.login'),
+    url(r'^login/$', custom_login),
     url(r'^logout/$', logout_page),
     
     url(r'^dept/([-\w]+)/$', dept_info),

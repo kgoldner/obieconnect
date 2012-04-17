@@ -5,11 +5,32 @@ from django.http import HttpResponseRedirect
 import datetime, random, sha
 from django.core.mail import send_mail
 from obieconnect.forms import RegistrationForm
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
+from django.contrib.auth.views import login
 
 from obieconnect.models import ObieConnectProfile, Course, Department, Professor
 
-# If user is logged in, take to personal profile
-# Else display login form AND link to registration form
+# landing page
+
+def main_page(request):
+    # take to personal profile (user is logged in)
+    return render_to_response('index.html')
+
+# log-in view
+
+def custom_login(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect(main_page)
+    # Else display login form AND link to registration form
+    else:
+        return login(request)
+
+# logout
+
+def logout_page(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 # registration form
 
@@ -52,6 +73,20 @@ def register(request):
         errors = new_data = {}
     form = forms.FormWrapper(manipulator, new_data, errors)
     return render_to_response('register.html', {'form': form})
+
+# confirmation view
+
+def confirm(request, activation_key):
+    if request.user.is_authenticated():
+        return render_to_response('confirm.html', {'has_account': True})
+    user_profile = get_object_or_404(UserProfile,
+                                     activation_key=activation_key)
+    if user_profile.key_expires < datetime.datetime.today():
+        return render_to_response('confirm.html', {'expired': True})
+    user_account = user_profile.user
+    user_account.is_active = True
+    user_account.save()
+    return render_to_response('confirm.html', {'success': True})
 
 # Department view 
 
