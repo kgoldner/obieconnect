@@ -4,7 +4,6 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 import datetime, random, sha
 from django.core.mail import send_mail
-from obieconnect.models import UserProfile
 from obieconnect.forms import RegistrationForm
 
 from obieconnect.models import ObieConnectProfile, Course, Department, Professor
