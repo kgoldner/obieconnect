@@ -10,4 +10,6 @@ urlpatterns = patterns('',
     
     url(r'^dept/([-\w]+)/$', dept_info),
     url(r'^prof/([-\w]+)/$', prof_info),
+    
+    # need url for course page
 )
