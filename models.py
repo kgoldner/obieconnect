@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 class ObieConnectProfile(models.Model):
 	user = models.OneToOneField(User, related_name='obieconnectprofile')
 	bio = models.TextField(max_length=500)
+	activation_key = models.CharField(maxlength=40)
+	key_expires = models.DateTimeField()
 	def __unicode__(self):
 		return self.username
 		
