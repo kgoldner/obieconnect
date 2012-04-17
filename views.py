@@ -13,9 +13,9 @@ from obieconnect.models import ObieConnectProfile, Course, Department, Professor
 
 # landing page
 
-def main_page(request):
-    # take to personal profile (user is logged in)
-    return render_to_response('index.html')
+def main_page(request, username):
+    user = ObieConnectProfile.objects.get(username)
+    return render_to_response('index.html', {user: 'user'})
 
 # log-in view
 

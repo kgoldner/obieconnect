@@ -1,0 +1,19 @@
+custom login:
+
+http://stackoverflow.com/questions/2320581/django-redirect-logged-in-users-from-login-page
+
+register:
+
+https://docs.djangoproject.com/en/dev/topics/auth/
+http://eli.thegreenplace.net/2011/07/17/django-sessions-part-iii-user-authentication/
+http://www.b-list.org/weblog/2006/sep/02/django-tips-user-registration/
+
+urls and whatnot for login:
+
+http://neverfear.org/blog/view/97/User_Authentication_With_Django#section_6
+
+comments documentation:
+
+https://docs.djangoproject.com/en/dev/ref/contrib/comments/example/
+
+
