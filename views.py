@@ -96,3 +96,4 @@ def confirm(request, activation_key):
     # Comments
     # Include list of users?
 
+# Enrollment
