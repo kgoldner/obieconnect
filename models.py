@@ -1,14 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class ObieConnectProfile(models.Model):
-	user = models.OneToOneField(User, related_name='obieconnectprofile')
-	bio = models.TextField(max_length=500)
-	activation_key = models.CharField(maxlength=40)
-	key_expires = models.DateTimeField()
-	def __unicode__(self):
-		return self.username
-		
 class Department(models.Model):
 	fullname = models.CharField(max_length=30)
 	shortname = models.CharField(max_length=4)
@@ -36,6 +28,15 @@ class Course(models.Model):
 	slug = models.SlugField(max_length=100)
 	def __unicode__(self):
 		return self.department + self.level
+	
+class ObieConnectProfile(models.Model):
+	user = models.OneToOneField(User, related_name='obieconnectprofile')
+	course = models.ManyToManyField(Course, related_name="users")
+	bio = models.TextField(max_length=500)
+	activation_key = models.CharField(max_length=40)
+	key_expires = models.DateTimeField()
+	def __unicode__(self):
+		return self.username
 	
 # django contrib comments - documentation (batteries included)
 # django contrib auth - we did this.

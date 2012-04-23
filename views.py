@@ -88,9 +88,23 @@ def confirm(request, activation_key):
     user_account.save()
     return render_to_response('confirm.html', {'success': True})
 
-# Department view 
+# Department views
+def all_depts(request):
+	depts = Department.objects.all()
+	return render_to_response('all_depts.html', {'depts': depts})
+        
+def dept_detail(request, dept_slug):
+	dept = Department.objects.get(slug=dept_slug)
+	return render_to_response('dept_detail.html', {'dept': dept})
 
-# Professor view
+# Professor views
+def all_profs(request):
+	profs = Professor.objects.all()
+	return render_to_response('all_profs.html', {'profs': profs})
+        
+def prof_detail(request, prof_slug):
+	prof = Professor.objects.get(slug=prof_slug)
+	return render_to_response('prof_detail.html', {'prof': prof})
 
 # Course page view
     # Comments
