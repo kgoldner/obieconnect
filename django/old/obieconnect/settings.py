@@ -1,4 +1,5 @@
 # Django settings for djangobase project.
+#test
 import os
 
 DIRNAME = os.path.dirname(__file__)
