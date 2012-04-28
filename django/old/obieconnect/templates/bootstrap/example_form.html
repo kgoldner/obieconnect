@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="span16">
+		<h2>Please enter the following</h2>
+		<br>
+		<form action="" method="post" id="example_form">
+			
+    {% if form.non_field_errors %}{{ form.non_field_errors }}{% endif %}
+		{% for item in form %}
+			{% include 'bootstrap/form_field.html' %}
+		{% endfor %}
+  </div>
+</div>
+<div class="row">
+	<div class="span16">
+		<div class="actions">
+			<button onclick="ajax();return false;" class="btn success">Register</button>
+			</form>
+		</div>
+	</div>
+</div>

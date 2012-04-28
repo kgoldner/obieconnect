@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>ssh.common</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="ssh-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="ssh-module.html">Package&nbsp;ssh</a> ::
+        Module&nbsp;common
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="ssh.common-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="ssh.common-module.html" onclick="show_private();">Module ssh.common</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2011  Jeff Forcier &lt;jeff@bitprophet.org&gt;</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This file is part of ssh.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># 'ssh' is free software; you can redistribute it and/or modify it under the</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># terms of the GNU Lesser General Public License as published by the Free</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Software Foundation; either version 2.1 of the License, or (at your option)</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># 'ssh' is distrubuted in the hope that it will be useful, but WITHOUT ANY</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># You should have received a copy of the GNU Lesser General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># along with 'ssh'; if not, write to the Free Software Foundation, Inc.,</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">Common constants and global variables.</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable ssh.auth_handler.MSG_DISCONNECT=ssh.auth_handler-module.html#MSG_DISCONNECT,Variable ssh.channel.MSG_DISCONNECT=ssh.channel-module.html#MSG_DISCONNECT,Variable ssh.client.MSG_DISCONNECT=ssh.client-module.html#MSG_DISCONNECT,Variable ssh.common.MSG_DISCONNECT=ssh.common-module.html#MSG_DISCONNECT,Variable ssh.dsskey.MSG_DISCONNECT=ssh.dsskey-module.html#MSG_DISCONNECT,Variable ssh.hostkeys.MSG_DISCONNECT=ssh.hostkeys-module.html#MSG_DISCONNECT,Variable ssh.kex_gex.MSG_DISCONNECT=ssh.kex_gex-module.html#MSG_DISCONNECT,Variable ssh.kex_group1.MSG_DISCONNECT=ssh.kex_group1-module.html#MSG_DISCONNECT,Variable ssh.packet.MSG_DISCONNECT=ssh.packet-module.html#MSG_DISCONNECT,Variable ssh.pkey.MSG_DISCONNECT=ssh.pkey-module.html#MSG_DISCONNECT,Variable ssh.rsakey.MSG_DISCONNECT=ssh.rsakey-module.html#MSG_DISCONNECT,Variable ssh.server.MSG_DISCONNECT=ssh.server-module.html#MSG_DISCONNECT,Variable ssh.sftp.MSG_DISCONNECT=ssh.sftp-module.html#MSG_DISCONNECT,Variable ssh.sftp_attr.MSG_DISCONNECT=ssh.sftp_attr-module.html#MSG_DISCONNECT,Variable ssh.sftp_client.MSG_DISCONNECT=ssh.sftp_client-module.html#MSG_DISCONNECT,Variable ssh.sftp_file.MSG_DISCONNECT=ssh.sftp_file-module.html#MSG_DISCONNECT,Variable ssh.sftp_handle.MSG_DISCONNECT=ssh.sftp_handle-module.html#MSG_DISCONNECT,Variable ssh.sftp_server.MSG_DISCONNECT=ssh.sftp_server-module.html#MSG_DISCONNECT,Variable ssh.sftp_si.MSG_DISCONNECT=ssh.sftp_si-module.html#MSG_DISCONNECT,Variable ssh.transport.MSG_DISCONNECT=ssh.transport-module.html#MSG_DISCONNECT,Variable ssh.util.MSG_DISCONNECT=ssh.util-module.html#MSG_DISCONNECT"><a title="ssh.auth_handler.MSG_DISCONNECT
+ssh.channel.MSG_DISCONNECT
+ssh.client.MSG_DISCONNECT
+ssh.common.MSG_DISCONNECT
+ssh.dsskey.MSG_DISCONNECT
+ssh.hostkeys.MSG_DISCONNECT
+ssh.kex_gex.MSG_DISCONNECT
+ssh.kex_group1.MSG_DISCONNECT
+ssh.packet.MSG_DISCONNECT
+ssh.pkey.MSG_DISCONNECT
+ssh.rsakey.MSG_DISCONNECT
+ssh.server.MSG_DISCONNECT
+ssh.sftp.MSG_DISCONNECT
+ssh.sftp_attr.MSG_DISCONNECT
+ssh.sftp_client.MSG_DISCONNECT
+ssh.sftp_file.MSG_DISCONNECT
+ssh.sftp_handle.MSG_DISCONNECT
+ssh.sftp_server.MSG_DISCONNECT
+ssh.sftp_si.MSG_DISCONNECT
+ssh.transport.MSG_DISCONNECT
+ssh.util.MSG_DISCONNECT" class="py-name" href="#" onclick="return doclink('link-0', 'MSG_DISCONNECT', 'link-0');">MSG_DISCONNECT</a></tt><tt class="py-op">,</tt> <tt id="link-1" class="py-name" targets="Variable ssh.auth_handler.MSG_IGNORE=ssh.auth_handler-module.html#MSG_IGNORE,Variable ssh.channel.MSG_IGNORE=ssh.channel-module.html#MSG_IGNORE,Variable ssh.client.MSG_IGNORE=ssh.client-module.html#MSG_IGNORE,Variable ssh.common.MSG_IGNORE=ssh.common-module.html#MSG_IGNORE,Variable ssh.dsskey.MSG_IGNORE=ssh.dsskey-module.html#MSG_IGNORE,Variable ssh.hostkeys.MSG_IGNORE=ssh.hostkeys-module.html#MSG_IGNORE,Variable ssh.kex_gex.MSG_IGNORE=ssh.kex_gex-module.html#MSG_IGNORE,Variable ssh.kex_group1.MSG_IGNORE=ssh.kex_group1-module.html#MSG_IGNORE,Variable ssh.packet.MSG_IGNORE=ssh.packet-module.html#MSG_IGNORE,Variable ssh.pkey.MSG_IGNORE=ssh.pkey-module.html#MSG_IGNORE,Variable ssh.rsakey.MSG_IGNORE=ssh.rsakey-module.html#MSG_IGNORE,Variable ssh.server.MSG_IGNORE=ssh.server-module.html#MSG_IGNORE,Variable ssh.sftp.MSG_IGNORE=ssh.sftp-module.html#MSG_IGNORE,Variable ssh.sftp_attr.MSG_IGNORE=ssh.sftp_attr-module.html#MSG_IGNORE,Variable ssh.sftp_client.MSG_IGNORE=ssh.sftp_client-module.html#MSG_IGNORE,Variable ssh.sftp_file.MSG_IGNORE=ssh.sftp_file-module.html#MSG_IGNORE,Variable ssh.sftp_handle.MSG_IGNORE=ssh.sftp_handle-module.html#MSG_IGNORE,Variable ssh.sftp_server.MSG_IGNORE=ssh.sftp_server-module.html#MSG_IGNORE,Variable ssh.sftp_si.MSG_IGNORE=ssh.sftp_si-module.html#MSG_IGNORE,Variable ssh.transport.MSG_IGNORE=ssh.transport-module.html#MSG_IGNORE,Variable ssh.util.MSG_IGNORE=ssh.util-module.html#MSG_IGNORE"><a title="ssh.auth_handler.MSG_IGNORE
+ssh.channel.MSG_IGNORE
+ssh.client.MSG_IGNORE
+ssh.common.MSG_IGNORE
+ssh.dsskey.MSG_IGNORE
+ssh.hostkeys.MSG_IGNORE
+ssh.kex_gex.MSG_IGNORE
+ssh.kex_group1.MSG_IGNORE
+ssh.packet.MSG_IGNORE
+ssh.pkey.MSG_IGNORE
+ssh.rsakey.MSG_IGNORE
+ssh.server.MSG_IGNORE
+ssh.sftp.MSG_IGNORE
+ssh.sftp_attr.MSG_IGNORE
+ssh.sftp_client.MSG_IGNORE
+ssh.sftp_file.MSG_IGNORE
+ssh.sftp_handle.MSG_IGNORE
+ssh.sftp_server.MSG_IGNORE
+ssh.sftp_si.MSG_IGNORE
+ssh.transport.MSG_IGNORE
+ssh.util.MSG_IGNORE" class="py-name" href="#" onclick="return doclink('link-1', 'MSG_IGNORE', 'link-1');">MSG_IGNORE</a></tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Variable ssh.auth_handler.MSG_UNIMPLEMENTED=ssh.auth_handler-module.html#MSG_UNIMPLEMENTED,Variable ssh.channel.MSG_UNIMPLEMENTED=ssh.channel-module.html#MSG_UNIMPLEMENTED,Variable ssh.client.MSG_UNIMPLEMENTED=ssh.client-module.html#MSG_UNIMPLEMENTED,Variable ssh.common.MSG_UNIMPLEMENTED=ssh.common-module.html#MSG_UNIMPLEMENTED,Variable ssh.dsskey.MSG_UNIMPLEMENTED=ssh.dsskey-module.html#MSG_UNIMPLEMENTED,Variable ssh.hostkeys.MSG_UNIMPLEMENTED=ssh.hostkeys-module.html#MSG_UNIMPLEMENTED,Variable ssh.kex_gex.MSG_UNIMPLEMENTED=ssh.kex_gex-module.html#MSG_UNIMPLEMENTED,Variable ssh.kex_group1.MSG_UNIMPLEMENTED=ssh.kex_group1-module.html#MSG_UNIMPLEMENTED,Variable ssh.packet.MSG_UNIMPLEMENTED=ssh.packet-module.html#MSG_UNIMPLEMENTED,Variable ssh.pkey.MSG_UNIMPLEMENTED=ssh.pkey-module.html#MSG_UNIMPLEMENTED,Variable ssh.rsakey.MSG_UNIMPLEMENTED=ssh.rsakey-module.html#MSG_UNIMPLEMENTED,Variable ssh.server.MSG_UNIMPLEMENTED=ssh.server-module.html#MSG_UNIMPLEMENTED,Variable ssh.sftp.MSG_UNIMPLEMENTED=ssh.sftp-module.html#MSG_UNIMPLEMENTED,Variable ssh.sftp_attr.MSG_UNIMPLEMENTED=ssh.sftp_attr-module.html#MSG_UNIMPLEMENTED,Variable ssh.sftp_client.MSG_UNIMPLEMENTED=ssh.sftp_client-module.html#MSG_UNIMPLEMENTED,Variable ssh.sftp_file.MSG_UNIMPLEMENTED=ssh.sftp_file-module.html#MSG_UNIMPLEMENTED,Variable ssh.sftp_handle.MSG_UNIMPLEMENTED=ssh.sftp_handle-module.html#MSG_UNIMPLEMENTED,Variable ssh.sftp_server.MSG_UNIMPLEMENTED=ssh.sftp_server-module.html#MSG_UNIMPLEMENTED,Variable ssh.sftp_si.MSG_UNIMPLEMENTED=ssh.sftp_si-module.html#MSG_UNIMPLEMENTED,Variable ssh.transport.MSG_UNIMPLEMENTED=ssh.transport-module.html#MSG_UNIMPLEMENTED,Variable ssh.util.MSG_UNIMPLEMENTED=ssh.util-module.html#MSG_UNIMPLEMENTED"><a title="ssh.auth_handler.MSG_UNIMPLEMENTED
+ssh.channel.MSG_UNIMPLEMENTED
+ssh.client.MSG_UNIMPLEMENTED
+ssh.common.MSG_UNIMPLEMENTED
+ssh.dsskey.MSG_UNIMPLEMENTED
+ssh.hostkeys.MSG_UNIMPLEMENTED
+ssh.kex_gex.MSG_UNIMPLEMENTED
+ssh.kex_group1.MSG_UNIMPLEMENTED
+ssh.packet.MSG_UNIMPLEMENTED
+ssh.pkey.MSG_UNIMPLEMENTED
+ssh.rsakey.MSG_UNIMPLEMENTED
+ssh.server.MSG_UNIMPLEMENTED
+ssh.sftp.MSG_UNIMPLEMENTED
+ssh.sftp_attr.MSG_UNIMPLEMENTED
+ssh.sftp_client.MSG_UNIMPLEMENTED
+ssh.sftp_file.MSG_UNIMPLEMENTED
+ssh.sftp_handle.MSG_UNIMPLEMENTED
+ssh.sftp_server.MSG_UNIMPLEMENTED
+ssh.sftp_si.MSG_UNIMPLEMENTED
+ssh.transport.MSG_UNIMPLEMENTED
+ssh.util.MSG_UNIMPLEMENTED" class="py-name" href="#" onclick="return doclink('link-2', 'MSG_UNIMPLEMENTED', 'link-2');">MSG_UNIMPLEMENTED</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Variable ssh.auth_handler.MSG_DEBUG=ssh.auth_handler-module.html#MSG_DEBUG,Variable ssh.channel.MSG_DEBUG=ssh.channel-module.html#MSG_DEBUG,Variable ssh.client.MSG_DEBUG=ssh.client-module.html#MSG_DEBUG,Variable ssh.common.MSG_DEBUG=ssh.common-module.html#MSG_DEBUG,Variable ssh.dsskey.MSG_DEBUG=ssh.dsskey-module.html#MSG_DEBUG,Variable ssh.hostkeys.MSG_DEBUG=ssh.hostkeys-module.html#MSG_DEBUG,Variable ssh.kex_gex.MSG_DEBUG=ssh.kex_gex-module.html#MSG_DEBUG,Variable ssh.kex_group1.MSG_DEBUG=ssh.kex_group1-module.html#MSG_DEBUG,Variable ssh.packet.MSG_DEBUG=ssh.packet-module.html#MSG_DEBUG,Variable ssh.pkey.MSG_DEBUG=ssh.pkey-module.html#MSG_DEBUG,Variable ssh.rsakey.MSG_DEBUG=ssh.rsakey-module.html#MSG_DEBUG,Variable ssh.server.MSG_DEBUG=ssh.server-module.html#MSG_DEBUG,Variable ssh.sftp.MSG_DEBUG=ssh.sftp-module.html#MSG_DEBUG,Variable ssh.sftp_attr.MSG_DEBUG=ssh.sftp_attr-module.html#MSG_DEBUG,Variable ssh.sftp_client.MSG_DEBUG=ssh.sftp_client-module.html#MSG_DEBUG,Variable ssh.sftp_file.MSG_DEBUG=ssh.sftp_file-module.html#MSG_DEBUG,Variable ssh.sftp_handle.MSG_DEBUG=ssh.sftp_handle-module.html#MSG_DEBUG,Variable ssh.sftp_server.MSG_DEBUG=ssh.sftp_server-module.html#MSG_DEBUG,Variable ssh.sftp_si.MSG_DEBUG=ssh.sftp_si-module.html#MSG_DEBUG,Variable ssh.transport.MSG_DEBUG=ssh.transport-module.html#MSG_DEBUG,Variable ssh.util.MSG_DEBUG=ssh.util-module.html#MSG_DEBUG"><a title="ssh.auth_handler.MSG_DEBUG
+ssh.channel.MSG_DEBUG
+ssh.client.MSG_DEBUG
+ssh.common.MSG_DEBUG
+ssh.dsskey.MSG_DEBUG
+ssh.hostkeys.MSG_DEBUG
+ssh.kex_gex.MSG_DEBUG
+ssh.kex_group1.MSG_DEBUG
+ssh.packet.MSG_DEBUG
+ssh.pkey.MSG_DEBUG
+ssh.rsakey.MSG_DEBUG
+ssh.server.MSG_DEBUG
+ssh.sftp.MSG_DEBUG
+ssh.sftp_attr.MSG_DEBUG
+ssh.sftp_client.MSG_DEBUG
+ssh.sftp_file.MSG_DEBUG
+ssh.sftp_handle.MSG_DEBUG
+ssh.sftp_server.MSG_DEBUG
+ssh.sftp_si.MSG_DEBUG
+ssh.transport.MSG_DEBUG
+ssh.util.MSG_DEBUG" class="py-name" href="#" onclick="return doclink('link-3', 'MSG_DEBUG', 'link-3');">MSG_DEBUG</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Variable ssh.auth_handler.MSG_SERVICE_REQUEST=ssh.auth_handler-module.html#MSG_SERVICE_REQUEST,Variable ssh.channel.MSG_SERVICE_REQUEST=ssh.channel-module.html#MSG_SERVICE_REQUEST,Variable ssh.client.MSG_SERVICE_REQUEST=ssh.client-module.html#MSG_SERVICE_REQUEST,Variable ssh.common.MSG_SERVICE_REQUEST=ssh.common-module.html#MSG_SERVICE_REQUEST,Variable ssh.dsskey.MSG_SERVICE_REQUEST=ssh.dsskey-module.html#MSG_SERVICE_REQUEST,Variable ssh.hostkeys.MSG_SERVICE_REQUEST=ssh.hostkeys-module.html#MSG_SERVICE_REQUEST,Variable ssh.kex_gex.MSG_SERVICE_REQUEST=ssh.kex_gex-module.html#MSG_SERVICE_REQUEST,Variable ssh.kex_group1.MSG_SERVICE_REQUEST=ssh.kex_group1-module.html#MSG_SERVICE_REQUEST,Variable ssh.packet.MSG_SERVICE_REQUEST=ssh.packet-module.html#MSG_SERVICE_REQUEST,Variable ssh.pkey.MSG_SERVICE_REQUEST=ssh.pkey-module.html#MSG_SERVICE_REQUEST,Variable ssh.rsakey.MSG_SERVICE_REQUEST=ssh.rsakey-module.html#MSG_SERVICE_REQUEST,Variable ssh.server.MSG_SERVICE_REQUEST=ssh.server-module.html#MSG_SERVICE_REQUEST,Variable ssh.sftp.MSG_SERVICE_REQUEST=ssh.sftp-module.html#MSG_SERVICE_REQUEST,Variable ssh.sftp_attr.MSG_SERVICE_REQUEST=ssh.sftp_attr-module.html#MSG_SERVICE_REQUEST,Variable ssh.sftp_client.MSG_SERVICE_REQUEST=ssh.sftp_client-module.html#MSG_SERVICE_REQUEST,Variable ssh.sftp_file.MSG_SERVICE_REQUEST=ssh.sftp_file-module.html#MSG_SERVICE_REQUEST,Variable ssh.sftp_handle.MSG_SERVICE_REQUEST=ssh.sftp_handle-module.html#MSG_SERVICE_REQUEST,Variable ssh.sftp_server.MSG_SERVICE_REQUEST=ssh.sftp_server-module.html#MSG_SERVICE_REQUEST,Variable ssh.sftp_si.MSG_SERVICE_REQUEST=ssh.sftp_si-module.html#MSG_SERVICE_REQUEST,Variable ssh.transport.MSG_SERVICE_REQUEST=ssh.transport-module.html#MSG_SERVICE_REQUEST,Variable ssh.util.MSG_SERVICE_REQUEST=ssh.util-module.html#MSG_SERVICE_REQUEST"><a title="ssh.auth_handler.MSG_SERVICE_REQUEST
+ssh.channel.MSG_SERVICE_REQUEST
+ssh.client.MSG_SERVICE_REQUEST
+ssh.common.MSG_SERVICE_REQUEST
+ssh.dsskey.MSG_SERVICE_REQUEST
+ssh.hostkeys.MSG_SERVICE_REQUEST
+ssh.kex_gex.MSG_SERVICE_REQUEST
+ssh.kex_group1.MSG_SERVICE_REQUEST
+ssh.packet.MSG_SERVICE_REQUEST
+ssh.pkey.MSG_SERVICE_REQUEST
+ssh.rsakey.MSG_SERVICE_REQUEST
+ssh.server.MSG_SERVICE_REQUEST
+ssh.sftp.MSG_SERVICE_REQUEST
+ssh.sftp_attr.MSG_SERVICE_REQUEST
+ssh.sftp_client.MSG_SERVICE_REQUEST
+ssh.sftp_file.MSG_SERVICE_REQUEST
+ssh.sftp_handle.MSG_SERVICE_REQUEST
+ssh.sftp_server.MSG_SERVICE_REQUEST
+ssh.sftp_si.MSG_SERVICE_REQUEST
+ssh.transport.MSG_SERVICE_REQUEST
+ssh.util.MSG_SERVICE_REQUEST" class="py-name" href="#" onclick="return doclink('link-4', 'MSG_SERVICE_REQUEST', 'link-4');">MSG_SERVICE_REQUEST</a></tt><tt class="py-op">,</tt> \ </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable ssh.auth_handler.MSG_SERVICE_ACCEPT=ssh.auth_handler-module.html#MSG_SERVICE_ACCEPT,Variable ssh.channel.MSG_SERVICE_ACCEPT=ssh.channel-module.html#MSG_SERVICE_ACCEPT,Variable ssh.client.MSG_SERVICE_ACCEPT=ssh.client-module.html#MSG_SERVICE_ACCEPT,Variable ssh.common.MSG_SERVICE_ACCEPT=ssh.common-module.html#MSG_SERVICE_ACCEPT,Variable ssh.dsskey.MSG_SERVICE_ACCEPT=ssh.dsskey-module.html#MSG_SERVICE_ACCEPT,Variable ssh.hostkeys.MSG_SERVICE_ACCEPT=ssh.hostkeys-module.html#MSG_SERVICE_ACCEPT,Variable ssh.kex_gex.MSG_SERVICE_ACCEPT=ssh.kex_gex-module.html#MSG_SERVICE_ACCEPT,Variable ssh.kex_group1.MSG_SERVICE_ACCEPT=ssh.kex_group1-module.html#MSG_SERVICE_ACCEPT,Variable ssh.packet.MSG_SERVICE_ACCEPT=ssh.packet-module.html#MSG_SERVICE_ACCEPT,Variable ssh.pkey.MSG_SERVICE_ACCEPT=ssh.pkey-module.html#MSG_SERVICE_ACCEPT,Variable ssh.rsakey.MSG_SERVICE_ACCEPT=ssh.rsakey-module.html#MSG_SERVICE_ACCEPT,Variable ssh.server.MSG_SERVICE_ACCEPT=ssh.server-module.html#MSG_SERVICE_ACCEPT,Variable ssh.sftp.MSG_SERVICE_ACCEPT=ssh.sftp-module.html#MSG_SERVICE_ACCEPT,Variable ssh.sftp_attr.MSG_SERVICE_ACCEPT=ssh.sftp_attr-module.html#MSG_SERVICE_ACCEPT,Variable ssh.sftp_client.MSG_SERVICE_ACCEPT=ssh.sftp_client-module.html#MSG_SERVICE_ACCEPT,Variable ssh.sftp_file.MSG_SERVICE_ACCEPT=ssh.sftp_file-module.html#MSG_SERVICE_ACCEPT,Variable ssh.sftp_handle.MSG_SERVICE_ACCEPT=ssh.sftp_handle-module.html#MSG_SERVICE_ACCEPT,Variable ssh.sftp_server.MSG_SERVICE_ACCEPT=ssh.sftp_server-module.html#MSG_SERVICE_ACCEPT,Variable ssh.sftp_si.MSG_SERVICE_ACCEPT=ssh.sftp_si-module.html#MSG_SERVICE_ACCEPT,Variable ssh.transport.MSG_SERVICE_ACCEPT=ssh.transport-module.html#MSG_SERVICE_ACCEPT,Variable ssh.util.MSG_SERVICE_ACCEPT=ssh.util-module.html#MSG_SERVICE_ACCEPT"><a title="ssh.auth_handler.MSG_SERVICE_ACCEPT
+ssh.channel.MSG_SERVICE_ACCEPT
+ssh.client.MSG_SERVICE_ACCEPT
+ssh.common.MSG_SERVICE_ACCEPT
+ssh.dsskey.MSG_SERVICE_ACCEPT
+ssh.hostkeys.MSG_SERVICE_ACCEPT
+ssh.kex_gex.MSG_SERVICE_ACCEPT
+ssh.kex_group1.MSG_SERVICE_ACCEPT
+ssh.packet.MSG_SERVICE_ACCEPT
+ssh.pkey.MSG_SERVICE_ACCEPT
+ssh.rsakey.MSG_SERVICE_ACCEPT
+ssh.server.MSG_SERVICE_ACCEPT
+ssh.sftp.MSG_SERVICE_ACCEPT
+ssh.sftp_attr.MSG_SERVICE_ACCEPT
+ssh.sftp_client.MSG_SERVICE_ACCEPT
+ssh.sftp_file.MSG_SERVICE_ACCEPT
+ssh.sftp_handle.MSG_SERVICE_ACCEPT
+ssh.sftp_server.MSG_SERVICE_ACCEPT
+ssh.sftp_si.MSG_SERVICE_ACCEPT
+ssh.transport.MSG_SERVICE_ACCEPT
+ssh.util.MSG_SERVICE_ACCEPT" class="py-name" href="#" onclick="return doclink('link-5', 'MSG_SERVICE_ACCEPT', 'link-5');">MSG_SERVICE_ACCEPT</a></tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-number">7</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable ssh.auth_handler.MSG_KEXINIT=ssh.auth_handler-module.html#MSG_KEXINIT,Variable ssh.channel.MSG_KEXINIT=ssh.channel-module.html#MSG_KEXINIT,Variable ssh.client.MSG_KEXINIT=ssh.client-module.html#MSG_KEXINIT,Variable ssh.common.MSG_KEXINIT=ssh.common-module.html#MSG_KEXINIT,Variable ssh.dsskey.MSG_KEXINIT=ssh.dsskey-module.html#MSG_KEXINIT,Variable ssh.hostkeys.MSG_KEXINIT=ssh.hostkeys-module.html#MSG_KEXINIT,Variable ssh.kex_gex.MSG_KEXINIT=ssh.kex_gex-module.html#MSG_KEXINIT,Variable ssh.kex_group1.MSG_KEXINIT=ssh.kex_group1-module.html#MSG_KEXINIT,Variable ssh.packet.MSG_KEXINIT=ssh.packet-module.html#MSG_KEXINIT,Variable ssh.pkey.MSG_KEXINIT=ssh.pkey-module.html#MSG_KEXINIT,Variable ssh.rsakey.MSG_KEXINIT=ssh.rsakey-module.html#MSG_KEXINIT,Variable ssh.server.MSG_KEXINIT=ssh.server-module.html#MSG_KEXINIT,Variable ssh.sftp.MSG_KEXINIT=ssh.sftp-module.html#MSG_KEXINIT,Variable ssh.sftp_attr.MSG_KEXINIT=ssh.sftp_attr-module.html#MSG_KEXINIT,Variable ssh.sftp_client.MSG_KEXINIT=ssh.sftp_client-module.html#MSG_KEXINIT,Variable ssh.sftp_file.MSG_KEXINIT=ssh.sftp_file-module.html#MSG_KEXINIT,Variable ssh.sftp_handle.MSG_KEXINIT=ssh.sftp_handle-module.html#MSG_KEXINIT,Variable ssh.sftp_server.MSG_KEXINIT=ssh.sftp_server-module.html#MSG_KEXINIT,Variable ssh.sftp_si.MSG_KEXINIT=ssh.sftp_si-module.html#MSG_KEXINIT,Variable ssh.transport.MSG_KEXINIT=ssh.transport-module.html#MSG_KEXINIT,Variable ssh.util.MSG_KEXINIT=ssh.util-module.html#MSG_KEXINIT"><a title="ssh.auth_handler.MSG_KEXINIT
+ssh.channel.MSG_KEXINIT
+ssh.client.MSG_KEXINIT
+ssh.common.MSG_KEXINIT
+ssh.dsskey.MSG_KEXINIT
+ssh.hostkeys.MSG_KEXINIT
+ssh.kex_gex.MSG_KEXINIT
+ssh.kex_group1.MSG_KEXINIT
+ssh.packet.MSG_KEXINIT
+ssh.pkey.MSG_KEXINIT
+ssh.rsakey.MSG_KEXINIT
+ssh.server.MSG_KEXINIT
+ssh.sftp.MSG_KEXINIT
+ssh.sftp_attr.MSG_KEXINIT
+ssh.sftp_client.MSG_KEXINIT
+ssh.sftp_file.MSG_KEXINIT
+ssh.sftp_handle.MSG_KEXINIT
+ssh.sftp_server.MSG_KEXINIT
+ssh.sftp_si.MSG_KEXINIT
+ssh.transport.MSG_KEXINIT
+ssh.util.MSG_KEXINIT" class="py-name" href="#" onclick="return doclink('link-6', 'MSG_KEXINIT', 'link-6');">MSG_KEXINIT</a></tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Variable ssh.auth_handler.MSG_NEWKEYS=ssh.auth_handler-module.html#MSG_NEWKEYS,Variable ssh.channel.MSG_NEWKEYS=ssh.channel-module.html#MSG_NEWKEYS,Variable ssh.client.MSG_NEWKEYS=ssh.client-module.html#MSG_NEWKEYS,Variable ssh.common.MSG_NEWKEYS=ssh.common-module.html#MSG_NEWKEYS,Variable ssh.dsskey.MSG_NEWKEYS=ssh.dsskey-module.html#MSG_NEWKEYS,Variable ssh.hostkeys.MSG_NEWKEYS=ssh.hostkeys-module.html#MSG_NEWKEYS,Variable ssh.kex_gex.MSG_NEWKEYS=ssh.kex_gex-module.html#MSG_NEWKEYS,Variable ssh.kex_group1.MSG_NEWKEYS=ssh.kex_group1-module.html#MSG_NEWKEYS,Variable ssh.packet.MSG_NEWKEYS=ssh.packet-module.html#MSG_NEWKEYS,Variable ssh.pkey.MSG_NEWKEYS=ssh.pkey-module.html#MSG_NEWKEYS,Variable ssh.rsakey.MSG_NEWKEYS=ssh.rsakey-module.html#MSG_NEWKEYS,Variable ssh.server.MSG_NEWKEYS=ssh.server-module.html#MSG_NEWKEYS,Variable ssh.sftp.MSG_NEWKEYS=ssh.sftp-module.html#MSG_NEWKEYS,Variable ssh.sftp_attr.MSG_NEWKEYS=ssh.sftp_attr-module.html#MSG_NEWKEYS,Variable ssh.sftp_client.MSG_NEWKEYS=ssh.sftp_client-module.html#MSG_NEWKEYS,Variable ssh.sftp_file.MSG_NEWKEYS=ssh.sftp_file-module.html#MSG_NEWKEYS,Variable ssh.sftp_handle.MSG_NEWKEYS=ssh.sftp_handle-module.html#MSG_NEWKEYS,Variable ssh.sftp_server.MSG_NEWKEYS=ssh.sftp_server-module.html#MSG_NEWKEYS,Variable ssh.sftp_si.MSG_NEWKEYS=ssh.sftp_si-module.html#MSG_NEWKEYS,Variable ssh.transport.MSG_NEWKEYS=ssh.transport-module.html#MSG_NEWKEYS,Variable ssh.util.MSG_NEWKEYS=ssh.util-module.html#MSG_NEWKEYS"><a title="ssh.auth_handler.MSG_NEWKEYS
+ssh.channel.MSG_NEWKEYS
+ssh.client.MSG_NEWKEYS
+ssh.common.MSG_NEWKEYS
+ssh.dsskey.MSG_NEWKEYS
+ssh.hostkeys.MSG_NEWKEYS
+ssh.kex_gex.MSG_NEWKEYS
+ssh.kex_group1.MSG_NEWKEYS
+ssh.packet.MSG_NEWKEYS
+ssh.pkey.MSG_NEWKEYS
+ssh.rsakey.MSG_NEWKEYS
+ssh.server.MSG_NEWKEYS
+ssh.sftp.MSG_NEWKEYS
+ssh.sftp_attr.MSG_NEWKEYS
+ssh.sftp_client.MSG_NEWKEYS
+ssh.sftp_file.MSG_NEWKEYS
+ssh.sftp_handle.MSG_NEWKEYS
+ssh.sftp_server.MSG_NEWKEYS
+ssh.sftp_si.MSG_NEWKEYS
+ssh.transport.MSG_NEWKEYS
+ssh.util.MSG_NEWKEYS" class="py-name" href="#" onclick="return doclink('link-7', 'MSG_NEWKEYS', 'link-7');">MSG_NEWKEYS</a></tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">20</tt><tt class="py-op">,</tt> <tt class="py-number">22</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt id="link-8" class="py-name" targets="Variable ssh.auth_handler.MSG_USERAUTH_REQUEST=ssh.auth_handler-module.html#MSG_USERAUTH_REQUEST,Variable ssh.channel.MSG_USERAUTH_REQUEST=ssh.channel-module.html#MSG_USERAUTH_REQUEST,Variable ssh.client.MSG_USERAUTH_REQUEST=ssh.client-module.html#MSG_USERAUTH_REQUEST,Variable ssh.common.MSG_USERAUTH_REQUEST=ssh.common-module.html#MSG_USERAUTH_REQUEST,Variable ssh.dsskey.MSG_USERAUTH_REQUEST=ssh.dsskey-module.html#MSG_USERAUTH_REQUEST,Variable ssh.hostkeys.MSG_USERAUTH_REQUEST=ssh.hostkeys-module.html#MSG_USERAUTH_REQUEST,Variable ssh.kex_gex.MSG_USERAUTH_REQUEST=ssh.kex_gex-module.html#MSG_USERAUTH_REQUEST,Variable ssh.kex_group1.MSG_USERAUTH_REQUEST=ssh.kex_group1-module.html#MSG_USERAUTH_REQUEST,Variable ssh.packet.MSG_USERAUTH_REQUEST=ssh.packet-module.html#MSG_USERAUTH_REQUEST,Variable ssh.pkey.MSG_USERAUTH_REQUEST=ssh.pkey-module.html#MSG_USERAUTH_REQUEST,Variable ssh.rsakey.MSG_USERAUTH_REQUEST=ssh.rsakey-module.html#MSG_USERAUTH_REQUEST,Variable ssh.server.MSG_USERAUTH_REQUEST=ssh.server-module.html#MSG_USERAUTH_REQUEST,Variable ssh.sftp.MSG_USERAUTH_REQUEST=ssh.sftp-module.html#MSG_USERAUTH_REQUEST,Variable ssh.sftp_attr.MSG_USERAUTH_REQUEST=ssh.sftp_attr-module.html#MSG_USERAUTH_REQUEST,Variable ssh.sftp_client.MSG_USERAUTH_REQUEST=ssh.sftp_client-module.html#MSG_USERAUTH_REQUEST,Variable ssh.sftp_file.MSG_USERAUTH_REQUEST=ssh.sftp_file-module.html#MSG_USERAUTH_REQUEST,Variable ssh.sftp_handle.MSG_USERAUTH_REQUEST=ssh.sftp_handle-module.html#MSG_USERAUTH_REQUEST,Variable ssh.sftp_server.MSG_USERAUTH_REQUEST=ssh.sftp_server-module.html#MSG_USERAUTH_REQUEST,Variable ssh.sftp_si.MSG_USERAUTH_REQUEST=ssh.sftp_si-module.html#MSG_USERAUTH_REQUEST,Variable ssh.transport.MSG_USERAUTH_REQUEST=ssh.transport-module.html#MSG_USERAUTH_REQUEST,Variable ssh.util.MSG_USERAUTH_REQUEST=ssh.util-module.html#MSG_USERAUTH_REQUEST"><a title="ssh.auth_handler.MSG_USERAUTH_REQUEST
+ssh.channel.MSG_USERAUTH_REQUEST
+ssh.client.MSG_USERAUTH_REQUEST
+ssh.common.MSG_USERAUTH_REQUEST
+ssh.dsskey.MSG_USERAUTH_REQUEST
+ssh.hostkeys.MSG_USERAUTH_REQUEST
+ssh.kex_gex.MSG_USERAUTH_REQUEST
+ssh.kex_group1.MSG_USERAUTH_REQUEST
+ssh.packet.MSG_USERAUTH_REQUEST
+ssh.pkey.MSG_USERAUTH_REQUEST
+ssh.rsakey.MSG_USERAUTH_REQUEST
+ssh.server.MSG_USERAUTH_REQUEST
+ssh.sftp.MSG_USERAUTH_REQUEST
+ssh.sftp_attr.MSG_USERAUTH_REQUEST
+ssh.sftp_client.MSG_USERAUTH_REQUEST
+ssh.sftp_file.MSG_USERAUTH_REQUEST
+ssh.sftp_handle.MSG_USERAUTH_REQUEST
+ssh.sftp_server.MSG_USERAUTH_REQUEST
+ssh.sftp_si.MSG_USERAUTH_REQUEST
+ssh.transport.MSG_USERAUTH_REQUEST
+ssh.util.MSG_USERAUTH_REQUEST" class="py-name" href="#" onclick="return doclink('link-8', 'MSG_USERAUTH_REQUEST', 'link-8');">MSG_USERAUTH_REQUEST</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Variable ssh.auth_handler.MSG_USERAUTH_FAILURE=ssh.auth_handler-module.html#MSG_USERAUTH_FAILURE,Variable ssh.channel.MSG_USERAUTH_FAILURE=ssh.channel-module.html#MSG_USERAUTH_FAILURE,Variable ssh.client.MSG_USERAUTH_FAILURE=ssh.client-module.html#MSG_USERAUTH_FAILURE,Variable ssh.common.MSG_USERAUTH_FAILURE=ssh.common-module.html#MSG_USERAUTH_FAILURE,Variable ssh.dsskey.MSG_USERAUTH_FAILURE=ssh.dsskey-module.html#MSG_USERAUTH_FAILURE,Variable ssh.hostkeys.MSG_USERAUTH_FAILURE=ssh.hostkeys-module.html#MSG_USERAUTH_FAILURE,Variable ssh.kex_gex.MSG_USERAUTH_FAILURE=ssh.kex_gex-module.html#MSG_USERAUTH_FAILURE,Variable ssh.kex_group1.MSG_USERAUTH_FAILURE=ssh.kex_group1-module.html#MSG_USERAUTH_FAILURE,Variable ssh.packet.MSG_USERAUTH_FAILURE=ssh.packet-module.html#MSG_USERAUTH_FAILURE,Variable ssh.pkey.MSG_USERAUTH_FAILURE=ssh.pkey-module.html#MSG_USERAUTH_FAILURE,Variable ssh.rsakey.MSG_USERAUTH_FAILURE=ssh.rsakey-module.html#MSG_USERAUTH_FAILURE,Variable ssh.server.MSG_USERAUTH_FAILURE=ssh.server-module.html#MSG_USERAUTH_FAILURE,Variable ssh.sftp.MSG_USERAUTH_FAILURE=ssh.sftp-module.html#MSG_USERAUTH_FAILURE,Variable ssh.sftp_attr.MSG_USERAUTH_FAILURE=ssh.sftp_attr-module.html#MSG_USERAUTH_FAILURE,Variable ssh.sftp_client.MSG_USERAUTH_FAILURE=ssh.sftp_client-module.html#MSG_USERAUTH_FAILURE,Variable ssh.sftp_file.MSG_USERAUTH_FAILURE=ssh.sftp_file-module.html#MSG_USERAUTH_FAILURE,Variable ssh.sftp_handle.MSG_USERAUTH_FAILURE=ssh.sftp_handle-module.html#MSG_USERAUTH_FAILURE,Variable ssh.sftp_server.MSG_USERAUTH_FAILURE=ssh.sftp_server-module.html#MSG_USERAUTH_FAILURE,Variable ssh.sftp_si.MSG_USERAUTH_FAILURE=ssh.sftp_si-module.html#MSG_USERAUTH_FAILURE,Variable ssh.transport.MSG_USERAUTH_FAILURE=ssh.transport-module.html#MSG_USERAUTH_FAILURE,Variable ssh.util.MSG_USERAUTH_FAILURE=ssh.util-module.html#MSG_USERAUTH_FAILURE"><a title="ssh.auth_handler.MSG_USERAUTH_FAILURE
+ssh.channel.MSG_USERAUTH_FAILURE
+ssh.client.MSG_USERAUTH_FAILURE
+ssh.common.MSG_USERAUTH_FAILURE
+ssh.dsskey.MSG_USERAUTH_FAILURE
+ssh.hostkeys.MSG_USERAUTH_FAILURE
+ssh.kex_gex.MSG_USERAUTH_FAILURE
+ssh.kex_group1.MSG_USERAUTH_FAILURE
+ssh.packet.MSG_USERAUTH_FAILURE
+ssh.pkey.MSG_USERAUTH_FAILURE
+ssh.rsakey.MSG_USERAUTH_FAILURE
+ssh.server.MSG_USERAUTH_FAILURE
+ssh.sftp.MSG_USERAUTH_FAILURE
+ssh.sftp_attr.MSG_USERAUTH_FAILURE
+ssh.sftp_client.MSG_USERAUTH_FAILURE
+ssh.sftp_file.MSG_USERAUTH_FAILURE
+ssh.sftp_handle.MSG_USERAUTH_FAILURE
+ssh.sftp_server.MSG_USERAUTH_FAILURE
+ssh.sftp_si.MSG_USERAUTH_FAILURE
+ssh.transport.MSG_USERAUTH_FAILURE
+ssh.util.MSG_USERAUTH_FAILURE" class="py-name" href="#" onclick="return doclink('link-9', 'MSG_USERAUTH_FAILURE', 'link-9');">MSG_USERAUTH_FAILURE</a></tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name" targets="Variable ssh.auth_handler.MSG_USERAUTH_SUCCESS=ssh.auth_handler-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.channel.MSG_USERAUTH_SUCCESS=ssh.channel-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.client.MSG_USERAUTH_SUCCESS=ssh.client-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.common.MSG_USERAUTH_SUCCESS=ssh.common-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.dsskey.MSG_USERAUTH_SUCCESS=ssh.dsskey-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.hostkeys.MSG_USERAUTH_SUCCESS=ssh.hostkeys-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.kex_gex.MSG_USERAUTH_SUCCESS=ssh.kex_gex-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.kex_group1.MSG_USERAUTH_SUCCESS=ssh.kex_group1-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.packet.MSG_USERAUTH_SUCCESS=ssh.packet-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.pkey.MSG_USERAUTH_SUCCESS=ssh.pkey-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.rsakey.MSG_USERAUTH_SUCCESS=ssh.rsakey-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.server.MSG_USERAUTH_SUCCESS=ssh.server-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.sftp.MSG_USERAUTH_SUCCESS=ssh.sftp-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.sftp_attr.MSG_USERAUTH_SUCCESS=ssh.sftp_attr-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.sftp_client.MSG_USERAUTH_SUCCESS=ssh.sftp_client-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.sftp_file.MSG_USERAUTH_SUCCESS=ssh.sftp_file-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.sftp_handle.MSG_USERAUTH_SUCCESS=ssh.sftp_handle-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.sftp_server.MSG_USERAUTH_SUCCESS=ssh.sftp_server-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.sftp_si.MSG_USERAUTH_SUCCESS=ssh.sftp_si-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.transport.MSG_USERAUTH_SUCCESS=ssh.transport-module.html#MSG_USERAUTH_SUCCESS,Variable ssh.util.MSG_USERAUTH_SUCCESS=ssh.util-module.html#MSG_USERAUTH_SUCCESS"><a title="ssh.auth_handler.MSG_USERAUTH_SUCCESS
+ssh.channel.MSG_USERAUTH_SUCCESS
+ssh.client.MSG_USERAUTH_SUCCESS
+ssh.common.MSG_USERAUTH_SUCCESS
+ssh.dsskey.MSG_USERAUTH_SUCCESS
+ssh.hostkeys.MSG_USERAUTH_SUCCESS
+ssh.kex_gex.MSG_USERAUTH_SUCCESS
+ssh.kex_group1.MSG_USERAUTH_SUCCESS
+ssh.packet.MSG_USERAUTH_SUCCESS
+ssh.pkey.MSG_USERAUTH_SUCCESS
+ssh.rsakey.MSG_USERAUTH_SUCCESS
+ssh.server.MSG_USERAUTH_SUCCESS
+ssh.sftp.MSG_USERAUTH_SUCCESS
+ssh.sftp_attr.MSG_USERAUTH_SUCCESS
+ssh.sftp_client.MSG_USERAUTH_SUCCESS
+ssh.sftp_file.MSG_USERAUTH_SUCCESS
+ssh.sftp_handle.MSG_USERAUTH_SUCCESS
+ssh.sftp_server.MSG_USERAUTH_SUCCESS
+ssh.sftp_si.MSG_USERAUTH_SUCCESS
+ssh.transport.MSG_USERAUTH_SUCCESS
+ssh.util.MSG_USERAUTH_SUCCESS" class="py-name" href="#" onclick="return doclink('link-10', 'MSG_USERAUTH_SUCCESS', 'link-10');">MSG_USERAUTH_SUCCESS</a></tt><tt class="py-op">,</tt> \ </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt id="link-11" class="py-name" targets="Variable ssh.auth_handler.MSG_USERAUTH_BANNER=ssh.auth_handler-module.html#MSG_USERAUTH_BANNER,Variable ssh.channel.MSG_USERAUTH_BANNER=ssh.channel-module.html#MSG_USERAUTH_BANNER,Variable ssh.client.MSG_USERAUTH_BANNER=ssh.client-module.html#MSG_USERAUTH_BANNER,Variable ssh.common.MSG_USERAUTH_BANNER=ssh.common-module.html#MSG_USERAUTH_BANNER,Variable ssh.dsskey.MSG_USERAUTH_BANNER=ssh.dsskey-module.html#MSG_USERAUTH_BANNER,Variable ssh.hostkeys.MSG_USERAUTH_BANNER=ssh.hostkeys-module.html#MSG_USERAUTH_BANNER,Variable ssh.kex_gex.MSG_USERAUTH_BANNER=ssh.kex_gex-module.html#MSG_USERAUTH_BANNER,Variable ssh.kex_group1.MSG_USERAUTH_BANNER=ssh.kex_group1-module.html#MSG_USERAUTH_BANNER,Variable ssh.packet.MSG_USERAUTH_BANNER=ssh.packet-module.html#MSG_USERAUTH_BANNER,Variable ssh.pkey.MSG_USERAUTH_BANNER=ssh.pkey-module.html#MSG_USERAUTH_BANNER,Variable ssh.rsakey.MSG_USERAUTH_BANNER=ssh.rsakey-module.html#MSG_USERAUTH_BANNER,Variable ssh.server.MSG_USERAUTH_BANNER=ssh.server-module.html#MSG_USERAUTH_BANNER,Variable ssh.sftp.MSG_USERAUTH_BANNER=ssh.sftp-module.html#MSG_USERAUTH_BANNER,Variable ssh.sftp_attr.MSG_USERAUTH_BANNER=ssh.sftp_attr-module.html#MSG_USERAUTH_BANNER,Variable ssh.sftp_client.MSG_USERAUTH_BANNER=ssh.sftp_client-module.html#MSG_USERAUTH_BANNER,Variable ssh.sftp_file.MSG_USERAUTH_BANNER=ssh.sftp_file-module.html#MSG_USERAUTH_BANNER,Variable ssh.sftp_handle.MSG_USERAUTH_BANNER=ssh.sftp_handle-module.html#MSG_USERAUTH_BANNER,Variable ssh.sftp_server.MSG_USERAUTH_BANNER=ssh.sftp_server-module.html#MSG_USERAUTH_BANNER,Variable ssh.sftp_si.MSG_USERAUTH_BANNER=ssh.sftp_si-module.html#MSG_USERAUTH_BANNER,Variable ssh.transport.MSG_USERAUTH_BANNER=ssh.transport-module.html#MSG_USERAUTH_BANNER,Variable ssh.util.MSG_USERAUTH_BANNER=ssh.util-module.html#MSG_USERAUTH_BANNER"><a title="ssh.auth_handler.MSG_USERAUTH_BANNER
+ssh.channel.MSG_USERAUTH_BANNER
+ssh.client.MSG_USERAUTH_BANNER
+ssh.common.MSG_USERAUTH_BANNER
+ssh.dsskey.MSG_USERAUTH_BANNER
+ssh.hostkeys.MSG_USERAUTH_BANNER
+ssh.kex_gex.MSG_USERAUTH_BANNER
+ssh.kex_group1.MSG_USERAUTH_BANNER
+ssh.packet.MSG_USERAUTH_BANNER
+ssh.pkey.MSG_USERAUTH_BANNER
+ssh.rsakey.MSG_USERAUTH_BANNER
+ssh.server.MSG_USERAUTH_BANNER
+ssh.sftp.MSG_USERAUTH_BANNER
+ssh.sftp_attr.MSG_USERAUTH_BANNER
+ssh.sftp_client.MSG_USERAUTH_BANNER
+ssh.sftp_file.MSG_USERAUTH_BANNER
+ssh.sftp_handle.MSG_USERAUTH_BANNER
+ssh.sftp_server.MSG_USERAUTH_BANNER
+ssh.sftp_si.MSG_USERAUTH_BANNER
+ssh.transport.MSG_USERAUTH_BANNER
+ssh.util.MSG_USERAUTH_BANNER" class="py-name" href="#" onclick="return doclink('link-11', 'MSG_USERAUTH_BANNER', 'link-11');">MSG_USERAUTH_BANNER</a></tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">50</tt><tt class="py-op">,</tt> <tt class="py-number">54</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt id="link-12" class="py-name" targets="Variable ssh.common.MSG_USERAUTH_PK_OK=ssh.common-module.html#MSG_USERAUTH_PK_OK"><a title="ssh.common.MSG_USERAUTH_PK_OK" class="py-name" href="#" onclick="return doclink('link-12', 'MSG_USERAUTH_PK_OK', 'link-12');">MSG_USERAUTH_PK_OK</a></tt> <tt class="py-op">=</tt> <tt class="py-number">60</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt id="link-13" class="py-name" targets="Variable ssh.auth_handler.MSG_USERAUTH_INFO_REQUEST=ssh.auth_handler-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.channel.MSG_USERAUTH_INFO_REQUEST=ssh.channel-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.client.MSG_USERAUTH_INFO_REQUEST=ssh.client-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.common.MSG_USERAUTH_INFO_REQUEST=ssh.common-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.dsskey.MSG_USERAUTH_INFO_REQUEST=ssh.dsskey-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.hostkeys.MSG_USERAUTH_INFO_REQUEST=ssh.hostkeys-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.kex_gex.MSG_USERAUTH_INFO_REQUEST=ssh.kex_gex-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.kex_group1.MSG_USERAUTH_INFO_REQUEST=ssh.kex_group1-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.packet.MSG_USERAUTH_INFO_REQUEST=ssh.packet-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.pkey.MSG_USERAUTH_INFO_REQUEST=ssh.pkey-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.rsakey.MSG_USERAUTH_INFO_REQUEST=ssh.rsakey-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.server.MSG_USERAUTH_INFO_REQUEST=ssh.server-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.sftp.MSG_USERAUTH_INFO_REQUEST=ssh.sftp-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.sftp_attr.MSG_USERAUTH_INFO_REQUEST=ssh.sftp_attr-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.sftp_client.MSG_USERAUTH_INFO_REQUEST=ssh.sftp_client-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.sftp_file.MSG_USERAUTH_INFO_REQUEST=ssh.sftp_file-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.sftp_handle.MSG_USERAUTH_INFO_REQUEST=ssh.sftp_handle-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.sftp_server.MSG_USERAUTH_INFO_REQUEST=ssh.sftp_server-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.sftp_si.MSG_USERAUTH_INFO_REQUEST=ssh.sftp_si-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.transport.MSG_USERAUTH_INFO_REQUEST=ssh.transport-module.html#MSG_USERAUTH_INFO_REQUEST,Variable ssh.util.MSG_USERAUTH_INFO_REQUEST=ssh.util-module.html#MSG_USERAUTH_INFO_REQUEST"><a title="ssh.auth_handler.MSG_USERAUTH_INFO_REQUEST
+ssh.channel.MSG_USERAUTH_INFO_REQUEST
+ssh.client.MSG_USERAUTH_INFO_REQUEST
+ssh.common.MSG_USERAUTH_INFO_REQUEST
+ssh.dsskey.MSG_USERAUTH_INFO_REQUEST
+ssh.hostkeys.MSG_USERAUTH_INFO_REQUEST
+ssh.kex_gex.MSG_USERAUTH_INFO_REQUEST
+ssh.kex_group1.MSG_USERAUTH_INFO_REQUEST
+ssh.packet.MSG_USERAUTH_INFO_REQUEST
+ssh.pkey.MSG_USERAUTH_INFO_REQUEST
+ssh.rsakey.MSG_USERAUTH_INFO_REQUEST
+ssh.server.MSG_USERAUTH_INFO_REQUEST
+ssh.sftp.MSG_USERAUTH_INFO_REQUEST
+ssh.sftp_attr.MSG_USERAUTH_INFO_REQUEST
+ssh.sftp_client.MSG_USERAUTH_INFO_REQUEST
+ssh.sftp_file.MSG_USERAUTH_INFO_REQUEST
+ssh.sftp_handle.MSG_USERAUTH_INFO_REQUEST
+ssh.sftp_server.MSG_USERAUTH_INFO_REQUEST
+ssh.sftp_si.MSG_USERAUTH_INFO_REQUEST
+ssh.transport.MSG_USERAUTH_INFO_REQUEST
+ssh.util.MSG_USERAUTH_INFO_REQUEST" class="py-name" href="#" onclick="return doclink('link-13', 'MSG_USERAUTH_INFO_REQUEST', 'link-13');">MSG_USERAUTH_INFO_REQUEST</a></tt><tt class="py-op">,</tt> <tt id="link-14" class="py-name" targets="Variable ssh.auth_handler.MSG_USERAUTH_INFO_RESPONSE=ssh.auth_handler-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.channel.MSG_USERAUTH_INFO_RESPONSE=ssh.channel-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.client.MSG_USERAUTH_INFO_RESPONSE=ssh.client-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.common.MSG_USERAUTH_INFO_RESPONSE=ssh.common-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.dsskey.MSG_USERAUTH_INFO_RESPONSE=ssh.dsskey-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.hostkeys.MSG_USERAUTH_INFO_RESPONSE=ssh.hostkeys-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.kex_gex.MSG_USERAUTH_INFO_RESPONSE=ssh.kex_gex-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.kex_group1.MSG_USERAUTH_INFO_RESPONSE=ssh.kex_group1-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.packet.MSG_USERAUTH_INFO_RESPONSE=ssh.packet-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.pkey.MSG_USERAUTH_INFO_RESPONSE=ssh.pkey-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.rsakey.MSG_USERAUTH_INFO_RESPONSE=ssh.rsakey-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.server.MSG_USERAUTH_INFO_RESPONSE=ssh.server-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.sftp.MSG_USERAUTH_INFO_RESPONSE=ssh.sftp-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.sftp_attr.MSG_USERAUTH_INFO_RESPONSE=ssh.sftp_attr-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.sftp_client.MSG_USERAUTH_INFO_RESPONSE=ssh.sftp_client-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.sftp_file.MSG_USERAUTH_INFO_RESPONSE=ssh.sftp_file-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.sftp_handle.MSG_USERAUTH_INFO_RESPONSE=ssh.sftp_handle-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.sftp_server.MSG_USERAUTH_INFO_RESPONSE=ssh.sftp_server-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.sftp_si.MSG_USERAUTH_INFO_RESPONSE=ssh.sftp_si-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.transport.MSG_USERAUTH_INFO_RESPONSE=ssh.transport-module.html#MSG_USERAUTH_INFO_RESPONSE,Variable ssh.util.MSG_USERAUTH_INFO_RESPONSE=ssh.util-module.html#MSG_USERAUTH_INFO_RESPONSE"><a title="ssh.auth_handler.MSG_USERAUTH_INFO_RESPONSE
+ssh.channel.MSG_USERAUTH_INFO_RESPONSE
+ssh.client.MSG_USERAUTH_INFO_RESPONSE
+ssh.common.MSG_USERAUTH_INFO_RESPONSE
+ssh.dsskey.MSG_USERAUTH_INFO_RESPONSE
+ssh.hostkeys.MSG_USERAUTH_INFO_RESPONSE
+ssh.kex_gex.MSG_USERAUTH_INFO_RESPONSE
+ssh.kex_group1.MSG_USERAUTH_INFO_RESPONSE
+ssh.packet.MSG_USERAUTH_INFO_RESPONSE
+ssh.pkey.MSG_USERAUTH_INFO_RESPONSE
+ssh.rsakey.MSG_USERAUTH_INFO_RESPONSE
+ssh.server.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_attr.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_client.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_file.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_handle.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_server.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_si.MSG_USERAUTH_INFO_RESPONSE
+ssh.transport.MSG_USERAUTH_INFO_RESPONSE
+ssh.util.MSG_USERAUTH_INFO_RESPONSE" class="py-name" href="#" onclick="return doclink('link-14', 'MSG_USERAUTH_INFO_RESPONSE', 'link-14');">MSG_USERAUTH_INFO_RESPONSE</a></tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">60</tt><tt class="py-op">,</tt> <tt class="py-number">62</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt id="link-15" class="py-name" targets="Variable ssh.auth_handler.MSG_GLOBAL_REQUEST=ssh.auth_handler-module.html#MSG_GLOBAL_REQUEST,Variable ssh.channel.MSG_GLOBAL_REQUEST=ssh.channel-module.html#MSG_GLOBAL_REQUEST,Variable ssh.client.MSG_GLOBAL_REQUEST=ssh.client-module.html#MSG_GLOBAL_REQUEST,Variable ssh.common.MSG_GLOBAL_REQUEST=ssh.common-module.html#MSG_GLOBAL_REQUEST,Variable ssh.dsskey.MSG_GLOBAL_REQUEST=ssh.dsskey-module.html#MSG_GLOBAL_REQUEST,Variable ssh.hostkeys.MSG_GLOBAL_REQUEST=ssh.hostkeys-module.html#MSG_GLOBAL_REQUEST,Variable ssh.kex_gex.MSG_GLOBAL_REQUEST=ssh.kex_gex-module.html#MSG_GLOBAL_REQUEST,Variable ssh.kex_group1.MSG_GLOBAL_REQUEST=ssh.kex_group1-module.html#MSG_GLOBAL_REQUEST,Variable ssh.packet.MSG_GLOBAL_REQUEST=ssh.packet-module.html#MSG_GLOBAL_REQUEST,Variable ssh.pkey.MSG_GLOBAL_REQUEST=ssh.pkey-module.html#MSG_GLOBAL_REQUEST,Variable ssh.rsakey.MSG_GLOBAL_REQUEST=ssh.rsakey-module.html#MSG_GLOBAL_REQUEST,Variable ssh.server.MSG_GLOBAL_REQUEST=ssh.server-module.html#MSG_GLOBAL_REQUEST,Variable ssh.sftp.MSG_GLOBAL_REQUEST=ssh.sftp-module.html#MSG_GLOBAL_REQUEST,Variable ssh.sftp_attr.MSG_GLOBAL_REQUEST=ssh.sftp_attr-module.html#MSG_GLOBAL_REQUEST,Variable ssh.sftp_client.MSG_GLOBAL_REQUEST=ssh.sftp_client-module.html#MSG_GLOBAL_REQUEST,Variable ssh.sftp_file.MSG_GLOBAL_REQUEST=ssh.sftp_file-module.html#MSG_GLOBAL_REQUEST,Variable ssh.sftp_handle.MSG_GLOBAL_REQUEST=ssh.sftp_handle-module.html#MSG_GLOBAL_REQUEST,Variable ssh.sftp_server.MSG_GLOBAL_REQUEST=ssh.sftp_server-module.html#MSG_GLOBAL_REQUEST,Variable ssh.sftp_si.MSG_GLOBAL_REQUEST=ssh.sftp_si-module.html#MSG_GLOBAL_REQUEST,Variable ssh.transport.MSG_GLOBAL_REQUEST=ssh.transport-module.html#MSG_GLOBAL_REQUEST,Variable ssh.util.MSG_GLOBAL_REQUEST=ssh.util-module.html#MSG_GLOBAL_REQUEST"><a title="ssh.auth_handler.MSG_GLOBAL_REQUEST
+ssh.channel.MSG_GLOBAL_REQUEST
+ssh.client.MSG_GLOBAL_REQUEST
+ssh.common.MSG_GLOBAL_REQUEST
+ssh.dsskey.MSG_GLOBAL_REQUEST
+ssh.hostkeys.MSG_GLOBAL_REQUEST
+ssh.kex_gex.MSG_GLOBAL_REQUEST
+ssh.kex_group1.MSG_GLOBAL_REQUEST
+ssh.packet.MSG_GLOBAL_REQUEST
+ssh.pkey.MSG_GLOBAL_REQUEST
+ssh.rsakey.MSG_GLOBAL_REQUEST
+ssh.server.MSG_GLOBAL_REQUEST
+ssh.sftp.MSG_GLOBAL_REQUEST
+ssh.sftp_attr.MSG_GLOBAL_REQUEST
+ssh.sftp_client.MSG_GLOBAL_REQUEST
+ssh.sftp_file.MSG_GLOBAL_REQUEST
+ssh.sftp_handle.MSG_GLOBAL_REQUEST
+ssh.sftp_server.MSG_GLOBAL_REQUEST
+ssh.sftp_si.MSG_GLOBAL_REQUEST
+ssh.transport.MSG_GLOBAL_REQUEST
+ssh.util.MSG_GLOBAL_REQUEST" class="py-name" href="#" onclick="return doclink('link-15', 'MSG_GLOBAL_REQUEST', 'link-15');">MSG_GLOBAL_REQUEST</a></tt><tt class="py-op">,</tt> <tt id="link-16" class="py-name" targets="Variable ssh.auth_handler.MSG_REQUEST_SUCCESS=ssh.auth_handler-module.html#MSG_REQUEST_SUCCESS,Variable ssh.channel.MSG_REQUEST_SUCCESS=ssh.channel-module.html#MSG_REQUEST_SUCCESS,Variable ssh.client.MSG_REQUEST_SUCCESS=ssh.client-module.html#MSG_REQUEST_SUCCESS,Variable ssh.common.MSG_REQUEST_SUCCESS=ssh.common-module.html#MSG_REQUEST_SUCCESS,Variable ssh.dsskey.MSG_REQUEST_SUCCESS=ssh.dsskey-module.html#MSG_REQUEST_SUCCESS,Variable ssh.hostkeys.MSG_REQUEST_SUCCESS=ssh.hostkeys-module.html#MSG_REQUEST_SUCCESS,Variable ssh.kex_gex.MSG_REQUEST_SUCCESS=ssh.kex_gex-module.html#MSG_REQUEST_SUCCESS,Variable ssh.kex_group1.MSG_REQUEST_SUCCESS=ssh.kex_group1-module.html#MSG_REQUEST_SUCCESS,Variable ssh.packet.MSG_REQUEST_SUCCESS=ssh.packet-module.html#MSG_REQUEST_SUCCESS,Variable ssh.pkey.MSG_REQUEST_SUCCESS=ssh.pkey-module.html#MSG_REQUEST_SUCCESS,Variable ssh.rsakey.MSG_REQUEST_SUCCESS=ssh.rsakey-module.html#MSG_REQUEST_SUCCESS,Variable ssh.server.MSG_REQUEST_SUCCESS=ssh.server-module.html#MSG_REQUEST_SUCCESS,Variable ssh.sftp.MSG_REQUEST_SUCCESS=ssh.sftp-module.html#MSG_REQUEST_SUCCESS,Variable ssh.sftp_attr.MSG_REQUEST_SUCCESS=ssh.sftp_attr-module.html#MSG_REQUEST_SUCCESS,Variable ssh.sftp_client.MSG_REQUEST_SUCCESS=ssh.sftp_client-module.html#MSG_REQUEST_SUCCESS,Variable ssh.sftp_file.MSG_REQUEST_SUCCESS=ssh.sftp_file-module.html#MSG_REQUEST_SUCCESS,Variable ssh.sftp_handle.MSG_REQUEST_SUCCESS=ssh.sftp_handle-module.html#MSG_REQUEST_SUCCESS,Variable ssh.sftp_server.MSG_REQUEST_SUCCESS=ssh.sftp_server-module.html#MSG_REQUEST_SUCCESS,Variable ssh.sftp_si.MSG_REQUEST_SUCCESS=ssh.sftp_si-module.html#MSG_REQUEST_SUCCESS,Variable ssh.transport.MSG_REQUEST_SUCCESS=ssh.transport-module.html#MSG_REQUEST_SUCCESS,Variable ssh.util.MSG_REQUEST_SUCCESS=ssh.util-module.html#MSG_REQUEST_SUCCESS"><a title="ssh.auth_handler.MSG_REQUEST_SUCCESS
+ssh.channel.MSG_REQUEST_SUCCESS
+ssh.client.MSG_REQUEST_SUCCESS
+ssh.common.MSG_REQUEST_SUCCESS
+ssh.dsskey.MSG_REQUEST_SUCCESS
+ssh.hostkeys.MSG_REQUEST_SUCCESS
+ssh.kex_gex.MSG_REQUEST_SUCCESS
+ssh.kex_group1.MSG_REQUEST_SUCCESS
+ssh.packet.MSG_REQUEST_SUCCESS
+ssh.pkey.MSG_REQUEST_SUCCESS
+ssh.rsakey.MSG_REQUEST_SUCCESS
+ssh.server.MSG_REQUEST_SUCCESS
+ssh.sftp.MSG_REQUEST_SUCCESS
+ssh.sftp_attr.MSG_REQUEST_SUCCESS
+ssh.sftp_client.MSG_REQUEST_SUCCESS
+ssh.sftp_file.MSG_REQUEST_SUCCESS
+ssh.sftp_handle.MSG_REQUEST_SUCCESS
+ssh.sftp_server.MSG_REQUEST_SUCCESS
+ssh.sftp_si.MSG_REQUEST_SUCCESS
+ssh.transport.MSG_REQUEST_SUCCESS
+ssh.util.MSG_REQUEST_SUCCESS" class="py-name" href="#" onclick="return doclink('link-16', 'MSG_REQUEST_SUCCESS', 'link-16');">MSG_REQUEST_SUCCESS</a></tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name" targets="Variable ssh.auth_handler.MSG_REQUEST_FAILURE=ssh.auth_handler-module.html#MSG_REQUEST_FAILURE,Variable ssh.channel.MSG_REQUEST_FAILURE=ssh.channel-module.html#MSG_REQUEST_FAILURE,Variable ssh.client.MSG_REQUEST_FAILURE=ssh.client-module.html#MSG_REQUEST_FAILURE,Variable ssh.common.MSG_REQUEST_FAILURE=ssh.common-module.html#MSG_REQUEST_FAILURE,Variable ssh.dsskey.MSG_REQUEST_FAILURE=ssh.dsskey-module.html#MSG_REQUEST_FAILURE,Variable ssh.hostkeys.MSG_REQUEST_FAILURE=ssh.hostkeys-module.html#MSG_REQUEST_FAILURE,Variable ssh.kex_gex.MSG_REQUEST_FAILURE=ssh.kex_gex-module.html#MSG_REQUEST_FAILURE,Variable ssh.kex_group1.MSG_REQUEST_FAILURE=ssh.kex_group1-module.html#MSG_REQUEST_FAILURE,Variable ssh.packet.MSG_REQUEST_FAILURE=ssh.packet-module.html#MSG_REQUEST_FAILURE,Variable ssh.pkey.MSG_REQUEST_FAILURE=ssh.pkey-module.html#MSG_REQUEST_FAILURE,Variable ssh.rsakey.MSG_REQUEST_FAILURE=ssh.rsakey-module.html#MSG_REQUEST_FAILURE,Variable ssh.server.MSG_REQUEST_FAILURE=ssh.server-module.html#MSG_REQUEST_FAILURE,Variable ssh.sftp.MSG_REQUEST_FAILURE=ssh.sftp-module.html#MSG_REQUEST_FAILURE,Variable ssh.sftp_attr.MSG_REQUEST_FAILURE=ssh.sftp_attr-module.html#MSG_REQUEST_FAILURE,Variable ssh.sftp_client.MSG_REQUEST_FAILURE=ssh.sftp_client-module.html#MSG_REQUEST_FAILURE,Variable ssh.sftp_file.MSG_REQUEST_FAILURE=ssh.sftp_file-module.html#MSG_REQUEST_FAILURE,Variable ssh.sftp_handle.MSG_REQUEST_FAILURE=ssh.sftp_handle-module.html#MSG_REQUEST_FAILURE,Variable ssh.sftp_server.MSG_REQUEST_FAILURE=ssh.sftp_server-module.html#MSG_REQUEST_FAILURE,Variable ssh.sftp_si.MSG_REQUEST_FAILURE=ssh.sftp_si-module.html#MSG_REQUEST_FAILURE,Variable ssh.transport.MSG_REQUEST_FAILURE=ssh.transport-module.html#MSG_REQUEST_FAILURE,Variable ssh.util.MSG_REQUEST_FAILURE=ssh.util-module.html#MSG_REQUEST_FAILURE"><a title="ssh.auth_handler.MSG_REQUEST_FAILURE
+ssh.channel.MSG_REQUEST_FAILURE
+ssh.client.MSG_REQUEST_FAILURE
+ssh.common.MSG_REQUEST_FAILURE
+ssh.dsskey.MSG_REQUEST_FAILURE
+ssh.hostkeys.MSG_REQUEST_FAILURE
+ssh.kex_gex.MSG_REQUEST_FAILURE
+ssh.kex_group1.MSG_REQUEST_FAILURE
+ssh.packet.MSG_REQUEST_FAILURE
+ssh.pkey.MSG_REQUEST_FAILURE
+ssh.rsakey.MSG_REQUEST_FAILURE
+ssh.server.MSG_REQUEST_FAILURE
+ssh.sftp.MSG_REQUEST_FAILURE
+ssh.sftp_attr.MSG_REQUEST_FAILURE
+ssh.sftp_client.MSG_REQUEST_FAILURE
+ssh.sftp_file.MSG_REQUEST_FAILURE
+ssh.sftp_handle.MSG_REQUEST_FAILURE
+ssh.sftp_server.MSG_REQUEST_FAILURE
+ssh.sftp_si.MSG_REQUEST_FAILURE
+ssh.transport.MSG_REQUEST_FAILURE
+ssh.util.MSG_REQUEST_FAILURE" class="py-name" href="#" onclick="return doclink('link-17', 'MSG_REQUEST_FAILURE', 'link-17');">MSG_REQUEST_FAILURE</a></tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">80</tt><tt class="py-op">,</tt> <tt class="py-number">83</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt id="link-18" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_OPEN=ssh.auth_handler-module.html#MSG_CHANNEL_OPEN,Variable ssh.channel.MSG_CHANNEL_OPEN=ssh.channel-module.html#MSG_CHANNEL_OPEN,Variable ssh.client.MSG_CHANNEL_OPEN=ssh.client-module.html#MSG_CHANNEL_OPEN,Variable ssh.common.MSG_CHANNEL_OPEN=ssh.common-module.html#MSG_CHANNEL_OPEN,Variable ssh.dsskey.MSG_CHANNEL_OPEN=ssh.dsskey-module.html#MSG_CHANNEL_OPEN,Variable ssh.hostkeys.MSG_CHANNEL_OPEN=ssh.hostkeys-module.html#MSG_CHANNEL_OPEN,Variable ssh.kex_gex.MSG_CHANNEL_OPEN=ssh.kex_gex-module.html#MSG_CHANNEL_OPEN,Variable ssh.kex_group1.MSG_CHANNEL_OPEN=ssh.kex_group1-module.html#MSG_CHANNEL_OPEN,Variable ssh.packet.MSG_CHANNEL_OPEN=ssh.packet-module.html#MSG_CHANNEL_OPEN,Variable ssh.pkey.MSG_CHANNEL_OPEN=ssh.pkey-module.html#MSG_CHANNEL_OPEN,Variable ssh.rsakey.MSG_CHANNEL_OPEN=ssh.rsakey-module.html#MSG_CHANNEL_OPEN,Variable ssh.server.MSG_CHANNEL_OPEN=ssh.server-module.html#MSG_CHANNEL_OPEN,Variable ssh.sftp.MSG_CHANNEL_OPEN=ssh.sftp-module.html#MSG_CHANNEL_OPEN,Variable ssh.sftp_attr.MSG_CHANNEL_OPEN=ssh.sftp_attr-module.html#MSG_CHANNEL_OPEN,Variable ssh.sftp_client.MSG_CHANNEL_OPEN=ssh.sftp_client-module.html#MSG_CHANNEL_OPEN,Variable ssh.sftp_file.MSG_CHANNEL_OPEN=ssh.sftp_file-module.html#MSG_CHANNEL_OPEN,Variable ssh.sftp_handle.MSG_CHANNEL_OPEN=ssh.sftp_handle-module.html#MSG_CHANNEL_OPEN,Variable ssh.sftp_server.MSG_CHANNEL_OPEN=ssh.sftp_server-module.html#MSG_CHANNEL_OPEN,Variable ssh.sftp_si.MSG_CHANNEL_OPEN=ssh.sftp_si-module.html#MSG_CHANNEL_OPEN,Variable ssh.transport.MSG_CHANNEL_OPEN=ssh.transport-module.html#MSG_CHANNEL_OPEN,Variable ssh.util.MSG_CHANNEL_OPEN=ssh.util-module.html#MSG_CHANNEL_OPEN"><a title="ssh.auth_handler.MSG_CHANNEL_OPEN
+ssh.channel.MSG_CHANNEL_OPEN
+ssh.client.MSG_CHANNEL_OPEN
+ssh.common.MSG_CHANNEL_OPEN
+ssh.dsskey.MSG_CHANNEL_OPEN
+ssh.hostkeys.MSG_CHANNEL_OPEN
+ssh.kex_gex.MSG_CHANNEL_OPEN
+ssh.kex_group1.MSG_CHANNEL_OPEN
+ssh.packet.MSG_CHANNEL_OPEN
+ssh.pkey.MSG_CHANNEL_OPEN
+ssh.rsakey.MSG_CHANNEL_OPEN
+ssh.server.MSG_CHANNEL_OPEN
+ssh.sftp.MSG_CHANNEL_OPEN
+ssh.sftp_attr.MSG_CHANNEL_OPEN
+ssh.sftp_client.MSG_CHANNEL_OPEN
+ssh.sftp_file.MSG_CHANNEL_OPEN
+ssh.sftp_handle.MSG_CHANNEL_OPEN
+ssh.sftp_server.MSG_CHANNEL_OPEN
+ssh.sftp_si.MSG_CHANNEL_OPEN
+ssh.transport.MSG_CHANNEL_OPEN
+ssh.util.MSG_CHANNEL_OPEN" class="py-name" href="#" onclick="return doclink('link-18', 'MSG_CHANNEL_OPEN', 'link-18');">MSG_CHANNEL_OPEN</a></tt><tt class="py-op">,</tt> <tt id="link-19" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_OPEN_SUCCESS=ssh.auth_handler-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.channel.MSG_CHANNEL_OPEN_SUCCESS=ssh.channel-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.client.MSG_CHANNEL_OPEN_SUCCESS=ssh.client-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.common.MSG_CHANNEL_OPEN_SUCCESS=ssh.common-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.dsskey.MSG_CHANNEL_OPEN_SUCCESS=ssh.dsskey-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.hostkeys.MSG_CHANNEL_OPEN_SUCCESS=ssh.hostkeys-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.kex_gex.MSG_CHANNEL_OPEN_SUCCESS=ssh.kex_gex-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.kex_group1.MSG_CHANNEL_OPEN_SUCCESS=ssh.kex_group1-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.packet.MSG_CHANNEL_OPEN_SUCCESS=ssh.packet-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.pkey.MSG_CHANNEL_OPEN_SUCCESS=ssh.pkey-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.rsakey.MSG_CHANNEL_OPEN_SUCCESS=ssh.rsakey-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.server.MSG_CHANNEL_OPEN_SUCCESS=ssh.server-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.sftp.MSG_CHANNEL_OPEN_SUCCESS=ssh.sftp-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.sftp_attr.MSG_CHANNEL_OPEN_SUCCESS=ssh.sftp_attr-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.sftp_client.MSG_CHANNEL_OPEN_SUCCESS=ssh.sftp_client-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.sftp_file.MSG_CHANNEL_OPEN_SUCCESS=ssh.sftp_file-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.sftp_handle.MSG_CHANNEL_OPEN_SUCCESS=ssh.sftp_handle-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.sftp_server.MSG_CHANNEL_OPEN_SUCCESS=ssh.sftp_server-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.sftp_si.MSG_CHANNEL_OPEN_SUCCESS=ssh.sftp_si-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.transport.MSG_CHANNEL_OPEN_SUCCESS=ssh.transport-module.html#MSG_CHANNEL_OPEN_SUCCESS,Variable ssh.util.MSG_CHANNEL_OPEN_SUCCESS=ssh.util-module.html#MSG_CHANNEL_OPEN_SUCCESS"><a title="ssh.auth_handler.MSG_CHANNEL_OPEN_SUCCESS
+ssh.channel.MSG_CHANNEL_OPEN_SUCCESS
+ssh.client.MSG_CHANNEL_OPEN_SUCCESS
+ssh.common.MSG_CHANNEL_OPEN_SUCCESS
+ssh.dsskey.MSG_CHANNEL_OPEN_SUCCESS
+ssh.hostkeys.MSG_CHANNEL_OPEN_SUCCESS
+ssh.kex_gex.MSG_CHANNEL_OPEN_SUCCESS
+ssh.kex_group1.MSG_CHANNEL_OPEN_SUCCESS
+ssh.packet.MSG_CHANNEL_OPEN_SUCCESS
+ssh.pkey.MSG_CHANNEL_OPEN_SUCCESS
+ssh.rsakey.MSG_CHANNEL_OPEN_SUCCESS
+ssh.server.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_attr.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_client.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_file.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_handle.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_server.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_si.MSG_CHANNEL_OPEN_SUCCESS
+ssh.transport.MSG_CHANNEL_OPEN_SUCCESS
+ssh.util.MSG_CHANNEL_OPEN_SUCCESS" class="py-name" href="#" onclick="return doclink('link-19', 'MSG_CHANNEL_OPEN_SUCCESS', 'link-19');">MSG_CHANNEL_OPEN_SUCCESS</a></tt><tt class="py-op">,</tt> <tt id="link-20" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_OPEN_FAILURE=ssh.auth_handler-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.channel.MSG_CHANNEL_OPEN_FAILURE=ssh.channel-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.client.MSG_CHANNEL_OPEN_FAILURE=ssh.client-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.common.MSG_CHANNEL_OPEN_FAILURE=ssh.common-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.dsskey.MSG_CHANNEL_OPEN_FAILURE=ssh.dsskey-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.hostkeys.MSG_CHANNEL_OPEN_FAILURE=ssh.hostkeys-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.kex_gex.MSG_CHANNEL_OPEN_FAILURE=ssh.kex_gex-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.kex_group1.MSG_CHANNEL_OPEN_FAILURE=ssh.kex_group1-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.packet.MSG_CHANNEL_OPEN_FAILURE=ssh.packet-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.pkey.MSG_CHANNEL_OPEN_FAILURE=ssh.pkey-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.rsakey.MSG_CHANNEL_OPEN_FAILURE=ssh.rsakey-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.server.MSG_CHANNEL_OPEN_FAILURE=ssh.server-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.sftp.MSG_CHANNEL_OPEN_FAILURE=ssh.sftp-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.sftp_attr.MSG_CHANNEL_OPEN_FAILURE=ssh.sftp_attr-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.sftp_client.MSG_CHANNEL_OPEN_FAILURE=ssh.sftp_client-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.sftp_file.MSG_CHANNEL_OPEN_FAILURE=ssh.sftp_file-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.sftp_handle.MSG_CHANNEL_OPEN_FAILURE=ssh.sftp_handle-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.sftp_server.MSG_CHANNEL_OPEN_FAILURE=ssh.sftp_server-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.sftp_si.MSG_CHANNEL_OPEN_FAILURE=ssh.sftp_si-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.transport.MSG_CHANNEL_OPEN_FAILURE=ssh.transport-module.html#MSG_CHANNEL_OPEN_FAILURE,Variable ssh.util.MSG_CHANNEL_OPEN_FAILURE=ssh.util-module.html#MSG_CHANNEL_OPEN_FAILURE"><a title="ssh.auth_handler.MSG_CHANNEL_OPEN_FAILURE
+ssh.channel.MSG_CHANNEL_OPEN_FAILURE
+ssh.client.MSG_CHANNEL_OPEN_FAILURE
+ssh.common.MSG_CHANNEL_OPEN_FAILURE
+ssh.dsskey.MSG_CHANNEL_OPEN_FAILURE
+ssh.hostkeys.MSG_CHANNEL_OPEN_FAILURE
+ssh.kex_gex.MSG_CHANNEL_OPEN_FAILURE
+ssh.kex_group1.MSG_CHANNEL_OPEN_FAILURE
+ssh.packet.MSG_CHANNEL_OPEN_FAILURE
+ssh.pkey.MSG_CHANNEL_OPEN_FAILURE
+ssh.rsakey.MSG_CHANNEL_OPEN_FAILURE
+ssh.server.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_attr.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_client.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_file.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_handle.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_server.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_si.MSG_CHANNEL_OPEN_FAILURE
+ssh.transport.MSG_CHANNEL_OPEN_FAILURE
+ssh.util.MSG_CHANNEL_OPEN_FAILURE" class="py-name" href="#" onclick="return doclink('link-20', 'MSG_CHANNEL_OPEN_FAILURE', 'link-20');">MSG_CHANNEL_OPEN_FAILURE</a></tt><tt class="py-op">,</tt> \ </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt id="link-21" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_WINDOW_ADJUST=ssh.auth_handler-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.channel.MSG_CHANNEL_WINDOW_ADJUST=ssh.channel-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.client.MSG_CHANNEL_WINDOW_ADJUST=ssh.client-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.common.MSG_CHANNEL_WINDOW_ADJUST=ssh.common-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.dsskey.MSG_CHANNEL_WINDOW_ADJUST=ssh.dsskey-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.hostkeys.MSG_CHANNEL_WINDOW_ADJUST=ssh.hostkeys-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.kex_gex.MSG_CHANNEL_WINDOW_ADJUST=ssh.kex_gex-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.kex_group1.MSG_CHANNEL_WINDOW_ADJUST=ssh.kex_group1-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.packet.MSG_CHANNEL_WINDOW_ADJUST=ssh.packet-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.pkey.MSG_CHANNEL_WINDOW_ADJUST=ssh.pkey-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.rsakey.MSG_CHANNEL_WINDOW_ADJUST=ssh.rsakey-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.server.MSG_CHANNEL_WINDOW_ADJUST=ssh.server-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.sftp.MSG_CHANNEL_WINDOW_ADJUST=ssh.sftp-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.sftp_attr.MSG_CHANNEL_WINDOW_ADJUST=ssh.sftp_attr-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.sftp_client.MSG_CHANNEL_WINDOW_ADJUST=ssh.sftp_client-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.sftp_file.MSG_CHANNEL_WINDOW_ADJUST=ssh.sftp_file-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.sftp_handle.MSG_CHANNEL_WINDOW_ADJUST=ssh.sftp_handle-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.sftp_server.MSG_CHANNEL_WINDOW_ADJUST=ssh.sftp_server-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.sftp_si.MSG_CHANNEL_WINDOW_ADJUST=ssh.sftp_si-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.transport.MSG_CHANNEL_WINDOW_ADJUST=ssh.transport-module.html#MSG_CHANNEL_WINDOW_ADJUST,Variable ssh.util.MSG_CHANNEL_WINDOW_ADJUST=ssh.util-module.html#MSG_CHANNEL_WINDOW_ADJUST"><a title="ssh.auth_handler.MSG_CHANNEL_WINDOW_ADJUST
+ssh.channel.MSG_CHANNEL_WINDOW_ADJUST
+ssh.client.MSG_CHANNEL_WINDOW_ADJUST
+ssh.common.MSG_CHANNEL_WINDOW_ADJUST
+ssh.dsskey.MSG_CHANNEL_WINDOW_ADJUST
+ssh.hostkeys.MSG_CHANNEL_WINDOW_ADJUST
+ssh.kex_gex.MSG_CHANNEL_WINDOW_ADJUST
+ssh.kex_group1.MSG_CHANNEL_WINDOW_ADJUST
+ssh.packet.MSG_CHANNEL_WINDOW_ADJUST
+ssh.pkey.MSG_CHANNEL_WINDOW_ADJUST
+ssh.rsakey.MSG_CHANNEL_WINDOW_ADJUST
+ssh.server.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_attr.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_client.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_file.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_handle.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_server.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_si.MSG_CHANNEL_WINDOW_ADJUST
+ssh.transport.MSG_CHANNEL_WINDOW_ADJUST
+ssh.util.MSG_CHANNEL_WINDOW_ADJUST" class="py-name" href="#" onclick="return doclink('link-21', 'MSG_CHANNEL_WINDOW_ADJUST', 'link-21');">MSG_CHANNEL_WINDOW_ADJUST</a></tt><tt class="py-op">,</tt> <tt id="link-22" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_DATA=ssh.auth_handler-module.html#MSG_CHANNEL_DATA,Variable ssh.channel.MSG_CHANNEL_DATA=ssh.channel-module.html#MSG_CHANNEL_DATA,Variable ssh.client.MSG_CHANNEL_DATA=ssh.client-module.html#MSG_CHANNEL_DATA,Variable ssh.common.MSG_CHANNEL_DATA=ssh.common-module.html#MSG_CHANNEL_DATA,Variable ssh.dsskey.MSG_CHANNEL_DATA=ssh.dsskey-module.html#MSG_CHANNEL_DATA,Variable ssh.hostkeys.MSG_CHANNEL_DATA=ssh.hostkeys-module.html#MSG_CHANNEL_DATA,Variable ssh.kex_gex.MSG_CHANNEL_DATA=ssh.kex_gex-module.html#MSG_CHANNEL_DATA,Variable ssh.kex_group1.MSG_CHANNEL_DATA=ssh.kex_group1-module.html#MSG_CHANNEL_DATA,Variable ssh.packet.MSG_CHANNEL_DATA=ssh.packet-module.html#MSG_CHANNEL_DATA,Variable ssh.pkey.MSG_CHANNEL_DATA=ssh.pkey-module.html#MSG_CHANNEL_DATA,Variable ssh.rsakey.MSG_CHANNEL_DATA=ssh.rsakey-module.html#MSG_CHANNEL_DATA,Variable ssh.server.MSG_CHANNEL_DATA=ssh.server-module.html#MSG_CHANNEL_DATA,Variable ssh.sftp.MSG_CHANNEL_DATA=ssh.sftp-module.html#MSG_CHANNEL_DATA,Variable ssh.sftp_attr.MSG_CHANNEL_DATA=ssh.sftp_attr-module.html#MSG_CHANNEL_DATA,Variable ssh.sftp_client.MSG_CHANNEL_DATA=ssh.sftp_client-module.html#MSG_CHANNEL_DATA,Variable ssh.sftp_file.MSG_CHANNEL_DATA=ssh.sftp_file-module.html#MSG_CHANNEL_DATA,Variable ssh.sftp_handle.MSG_CHANNEL_DATA=ssh.sftp_handle-module.html#MSG_CHANNEL_DATA,Variable ssh.sftp_server.MSG_CHANNEL_DATA=ssh.sftp_server-module.html#MSG_CHANNEL_DATA,Variable ssh.sftp_si.MSG_CHANNEL_DATA=ssh.sftp_si-module.html#MSG_CHANNEL_DATA,Variable ssh.transport.MSG_CHANNEL_DATA=ssh.transport-module.html#MSG_CHANNEL_DATA,Variable ssh.util.MSG_CHANNEL_DATA=ssh.util-module.html#MSG_CHANNEL_DATA"><a title="ssh.auth_handler.MSG_CHANNEL_DATA
+ssh.channel.MSG_CHANNEL_DATA
+ssh.client.MSG_CHANNEL_DATA
+ssh.common.MSG_CHANNEL_DATA
+ssh.dsskey.MSG_CHANNEL_DATA
+ssh.hostkeys.MSG_CHANNEL_DATA
+ssh.kex_gex.MSG_CHANNEL_DATA
+ssh.kex_group1.MSG_CHANNEL_DATA
+ssh.packet.MSG_CHANNEL_DATA
+ssh.pkey.MSG_CHANNEL_DATA
+ssh.rsakey.MSG_CHANNEL_DATA
+ssh.server.MSG_CHANNEL_DATA
+ssh.sftp.MSG_CHANNEL_DATA
+ssh.sftp_attr.MSG_CHANNEL_DATA
+ssh.sftp_client.MSG_CHANNEL_DATA
+ssh.sftp_file.MSG_CHANNEL_DATA
+ssh.sftp_handle.MSG_CHANNEL_DATA
+ssh.sftp_server.MSG_CHANNEL_DATA
+ssh.sftp_si.MSG_CHANNEL_DATA
+ssh.transport.MSG_CHANNEL_DATA
+ssh.util.MSG_CHANNEL_DATA" class="py-name" href="#" onclick="return doclink('link-22', 'MSG_CHANNEL_DATA', 'link-22');">MSG_CHANNEL_DATA</a></tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_EXTENDED_DATA=ssh.auth_handler-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.channel.MSG_CHANNEL_EXTENDED_DATA=ssh.channel-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.client.MSG_CHANNEL_EXTENDED_DATA=ssh.client-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.common.MSG_CHANNEL_EXTENDED_DATA=ssh.common-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.dsskey.MSG_CHANNEL_EXTENDED_DATA=ssh.dsskey-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.hostkeys.MSG_CHANNEL_EXTENDED_DATA=ssh.hostkeys-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.kex_gex.MSG_CHANNEL_EXTENDED_DATA=ssh.kex_gex-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.kex_group1.MSG_CHANNEL_EXTENDED_DATA=ssh.kex_group1-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.packet.MSG_CHANNEL_EXTENDED_DATA=ssh.packet-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.pkey.MSG_CHANNEL_EXTENDED_DATA=ssh.pkey-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.rsakey.MSG_CHANNEL_EXTENDED_DATA=ssh.rsakey-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.server.MSG_CHANNEL_EXTENDED_DATA=ssh.server-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.sftp.MSG_CHANNEL_EXTENDED_DATA=ssh.sftp-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.sftp_attr.MSG_CHANNEL_EXTENDED_DATA=ssh.sftp_attr-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.sftp_client.MSG_CHANNEL_EXTENDED_DATA=ssh.sftp_client-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.sftp_file.MSG_CHANNEL_EXTENDED_DATA=ssh.sftp_file-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.sftp_handle.MSG_CHANNEL_EXTENDED_DATA=ssh.sftp_handle-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.sftp_server.MSG_CHANNEL_EXTENDED_DATA=ssh.sftp_server-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.sftp_si.MSG_CHANNEL_EXTENDED_DATA=ssh.sftp_si-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.transport.MSG_CHANNEL_EXTENDED_DATA=ssh.transport-module.html#MSG_CHANNEL_EXTENDED_DATA,Variable ssh.util.MSG_CHANNEL_EXTENDED_DATA=ssh.util-module.html#MSG_CHANNEL_EXTENDED_DATA"><a title="ssh.auth_handler.MSG_CHANNEL_EXTENDED_DATA
+ssh.channel.MSG_CHANNEL_EXTENDED_DATA
+ssh.client.MSG_CHANNEL_EXTENDED_DATA
+ssh.common.MSG_CHANNEL_EXTENDED_DATA
+ssh.dsskey.MSG_CHANNEL_EXTENDED_DATA
+ssh.hostkeys.MSG_CHANNEL_EXTENDED_DATA
+ssh.kex_gex.MSG_CHANNEL_EXTENDED_DATA
+ssh.kex_group1.MSG_CHANNEL_EXTENDED_DATA
+ssh.packet.MSG_CHANNEL_EXTENDED_DATA
+ssh.pkey.MSG_CHANNEL_EXTENDED_DATA
+ssh.rsakey.MSG_CHANNEL_EXTENDED_DATA
+ssh.server.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_attr.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_client.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_file.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_handle.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_server.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_si.MSG_CHANNEL_EXTENDED_DATA
+ssh.transport.MSG_CHANNEL_EXTENDED_DATA
+ssh.util.MSG_CHANNEL_EXTENDED_DATA" class="py-name" href="#" onclick="return doclink('link-23', 'MSG_CHANNEL_EXTENDED_DATA', 'link-23');">MSG_CHANNEL_EXTENDED_DATA</a></tt><tt class="py-op">,</tt> \ </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt id="link-24" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_EOF=ssh.auth_handler-module.html#MSG_CHANNEL_EOF,Variable ssh.channel.MSG_CHANNEL_EOF=ssh.channel-module.html#MSG_CHANNEL_EOF,Variable ssh.client.MSG_CHANNEL_EOF=ssh.client-module.html#MSG_CHANNEL_EOF,Variable ssh.common.MSG_CHANNEL_EOF=ssh.common-module.html#MSG_CHANNEL_EOF,Variable ssh.dsskey.MSG_CHANNEL_EOF=ssh.dsskey-module.html#MSG_CHANNEL_EOF,Variable ssh.hostkeys.MSG_CHANNEL_EOF=ssh.hostkeys-module.html#MSG_CHANNEL_EOF,Variable ssh.kex_gex.MSG_CHANNEL_EOF=ssh.kex_gex-module.html#MSG_CHANNEL_EOF,Variable ssh.kex_group1.MSG_CHANNEL_EOF=ssh.kex_group1-module.html#MSG_CHANNEL_EOF,Variable ssh.packet.MSG_CHANNEL_EOF=ssh.packet-module.html#MSG_CHANNEL_EOF,Variable ssh.pkey.MSG_CHANNEL_EOF=ssh.pkey-module.html#MSG_CHANNEL_EOF,Variable ssh.rsakey.MSG_CHANNEL_EOF=ssh.rsakey-module.html#MSG_CHANNEL_EOF,Variable ssh.server.MSG_CHANNEL_EOF=ssh.server-module.html#MSG_CHANNEL_EOF,Variable ssh.sftp.MSG_CHANNEL_EOF=ssh.sftp-module.html#MSG_CHANNEL_EOF,Variable ssh.sftp_attr.MSG_CHANNEL_EOF=ssh.sftp_attr-module.html#MSG_CHANNEL_EOF,Variable ssh.sftp_client.MSG_CHANNEL_EOF=ssh.sftp_client-module.html#MSG_CHANNEL_EOF,Variable ssh.sftp_file.MSG_CHANNEL_EOF=ssh.sftp_file-module.html#MSG_CHANNEL_EOF,Variable ssh.sftp_handle.MSG_CHANNEL_EOF=ssh.sftp_handle-module.html#MSG_CHANNEL_EOF,Variable ssh.sftp_server.MSG_CHANNEL_EOF=ssh.sftp_server-module.html#MSG_CHANNEL_EOF,Variable ssh.sftp_si.MSG_CHANNEL_EOF=ssh.sftp_si-module.html#MSG_CHANNEL_EOF,Variable ssh.transport.MSG_CHANNEL_EOF=ssh.transport-module.html#MSG_CHANNEL_EOF,Variable ssh.util.MSG_CHANNEL_EOF=ssh.util-module.html#MSG_CHANNEL_EOF"><a title="ssh.auth_handler.MSG_CHANNEL_EOF
+ssh.channel.MSG_CHANNEL_EOF
+ssh.client.MSG_CHANNEL_EOF
+ssh.common.MSG_CHANNEL_EOF
+ssh.dsskey.MSG_CHANNEL_EOF
+ssh.hostkeys.MSG_CHANNEL_EOF
+ssh.kex_gex.MSG_CHANNEL_EOF
+ssh.kex_group1.MSG_CHANNEL_EOF
+ssh.packet.MSG_CHANNEL_EOF
+ssh.pkey.MSG_CHANNEL_EOF
+ssh.rsakey.MSG_CHANNEL_EOF
+ssh.server.MSG_CHANNEL_EOF
+ssh.sftp.MSG_CHANNEL_EOF
+ssh.sftp_attr.MSG_CHANNEL_EOF
+ssh.sftp_client.MSG_CHANNEL_EOF
+ssh.sftp_file.MSG_CHANNEL_EOF
+ssh.sftp_handle.MSG_CHANNEL_EOF
+ssh.sftp_server.MSG_CHANNEL_EOF
+ssh.sftp_si.MSG_CHANNEL_EOF
+ssh.transport.MSG_CHANNEL_EOF
+ssh.util.MSG_CHANNEL_EOF" class="py-name" href="#" onclick="return doclink('link-24', 'MSG_CHANNEL_EOF', 'link-24');">MSG_CHANNEL_EOF</a></tt><tt class="py-op">,</tt> <tt id="link-25" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_CLOSE=ssh.auth_handler-module.html#MSG_CHANNEL_CLOSE,Variable ssh.channel.MSG_CHANNEL_CLOSE=ssh.channel-module.html#MSG_CHANNEL_CLOSE,Variable ssh.client.MSG_CHANNEL_CLOSE=ssh.client-module.html#MSG_CHANNEL_CLOSE,Variable ssh.common.MSG_CHANNEL_CLOSE=ssh.common-module.html#MSG_CHANNEL_CLOSE,Variable ssh.dsskey.MSG_CHANNEL_CLOSE=ssh.dsskey-module.html#MSG_CHANNEL_CLOSE,Variable ssh.hostkeys.MSG_CHANNEL_CLOSE=ssh.hostkeys-module.html#MSG_CHANNEL_CLOSE,Variable ssh.kex_gex.MSG_CHANNEL_CLOSE=ssh.kex_gex-module.html#MSG_CHANNEL_CLOSE,Variable ssh.kex_group1.MSG_CHANNEL_CLOSE=ssh.kex_group1-module.html#MSG_CHANNEL_CLOSE,Variable ssh.packet.MSG_CHANNEL_CLOSE=ssh.packet-module.html#MSG_CHANNEL_CLOSE,Variable ssh.pkey.MSG_CHANNEL_CLOSE=ssh.pkey-module.html#MSG_CHANNEL_CLOSE,Variable ssh.rsakey.MSG_CHANNEL_CLOSE=ssh.rsakey-module.html#MSG_CHANNEL_CLOSE,Variable ssh.server.MSG_CHANNEL_CLOSE=ssh.server-module.html#MSG_CHANNEL_CLOSE,Variable ssh.sftp.MSG_CHANNEL_CLOSE=ssh.sftp-module.html#MSG_CHANNEL_CLOSE,Variable ssh.sftp_attr.MSG_CHANNEL_CLOSE=ssh.sftp_attr-module.html#MSG_CHANNEL_CLOSE,Variable ssh.sftp_client.MSG_CHANNEL_CLOSE=ssh.sftp_client-module.html#MSG_CHANNEL_CLOSE,Variable ssh.sftp_file.MSG_CHANNEL_CLOSE=ssh.sftp_file-module.html#MSG_CHANNEL_CLOSE,Variable ssh.sftp_handle.MSG_CHANNEL_CLOSE=ssh.sftp_handle-module.html#MSG_CHANNEL_CLOSE,Variable ssh.sftp_server.MSG_CHANNEL_CLOSE=ssh.sftp_server-module.html#MSG_CHANNEL_CLOSE,Variable ssh.sftp_si.MSG_CHANNEL_CLOSE=ssh.sftp_si-module.html#MSG_CHANNEL_CLOSE,Variable ssh.transport.MSG_CHANNEL_CLOSE=ssh.transport-module.html#MSG_CHANNEL_CLOSE,Variable ssh.util.MSG_CHANNEL_CLOSE=ssh.util-module.html#MSG_CHANNEL_CLOSE"><a title="ssh.auth_handler.MSG_CHANNEL_CLOSE
+ssh.channel.MSG_CHANNEL_CLOSE
+ssh.client.MSG_CHANNEL_CLOSE
+ssh.common.MSG_CHANNEL_CLOSE
+ssh.dsskey.MSG_CHANNEL_CLOSE
+ssh.hostkeys.MSG_CHANNEL_CLOSE
+ssh.kex_gex.MSG_CHANNEL_CLOSE
+ssh.kex_group1.MSG_CHANNEL_CLOSE
+ssh.packet.MSG_CHANNEL_CLOSE
+ssh.pkey.MSG_CHANNEL_CLOSE
+ssh.rsakey.MSG_CHANNEL_CLOSE
+ssh.server.MSG_CHANNEL_CLOSE
+ssh.sftp.MSG_CHANNEL_CLOSE
+ssh.sftp_attr.MSG_CHANNEL_CLOSE
+ssh.sftp_client.MSG_CHANNEL_CLOSE
+ssh.sftp_file.MSG_CHANNEL_CLOSE
+ssh.sftp_handle.MSG_CHANNEL_CLOSE
+ssh.sftp_server.MSG_CHANNEL_CLOSE
+ssh.sftp_si.MSG_CHANNEL_CLOSE
+ssh.transport.MSG_CHANNEL_CLOSE
+ssh.util.MSG_CHANNEL_CLOSE" class="py-name" href="#" onclick="return doclink('link-25', 'MSG_CHANNEL_CLOSE', 'link-25');">MSG_CHANNEL_CLOSE</a></tt><tt class="py-op">,</tt> <tt id="link-26" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_REQUEST=ssh.auth_handler-module.html#MSG_CHANNEL_REQUEST,Variable ssh.channel.MSG_CHANNEL_REQUEST=ssh.channel-module.html#MSG_CHANNEL_REQUEST,Variable ssh.client.MSG_CHANNEL_REQUEST=ssh.client-module.html#MSG_CHANNEL_REQUEST,Variable ssh.common.MSG_CHANNEL_REQUEST=ssh.common-module.html#MSG_CHANNEL_REQUEST,Variable ssh.dsskey.MSG_CHANNEL_REQUEST=ssh.dsskey-module.html#MSG_CHANNEL_REQUEST,Variable ssh.hostkeys.MSG_CHANNEL_REQUEST=ssh.hostkeys-module.html#MSG_CHANNEL_REQUEST,Variable ssh.kex_gex.MSG_CHANNEL_REQUEST=ssh.kex_gex-module.html#MSG_CHANNEL_REQUEST,Variable ssh.kex_group1.MSG_CHANNEL_REQUEST=ssh.kex_group1-module.html#MSG_CHANNEL_REQUEST,Variable ssh.packet.MSG_CHANNEL_REQUEST=ssh.packet-module.html#MSG_CHANNEL_REQUEST,Variable ssh.pkey.MSG_CHANNEL_REQUEST=ssh.pkey-module.html#MSG_CHANNEL_REQUEST,Variable ssh.rsakey.MSG_CHANNEL_REQUEST=ssh.rsakey-module.html#MSG_CHANNEL_REQUEST,Variable ssh.server.MSG_CHANNEL_REQUEST=ssh.server-module.html#MSG_CHANNEL_REQUEST,Variable ssh.sftp.MSG_CHANNEL_REQUEST=ssh.sftp-module.html#MSG_CHANNEL_REQUEST,Variable ssh.sftp_attr.MSG_CHANNEL_REQUEST=ssh.sftp_attr-module.html#MSG_CHANNEL_REQUEST,Variable ssh.sftp_client.MSG_CHANNEL_REQUEST=ssh.sftp_client-module.html#MSG_CHANNEL_REQUEST,Variable ssh.sftp_file.MSG_CHANNEL_REQUEST=ssh.sftp_file-module.html#MSG_CHANNEL_REQUEST,Variable ssh.sftp_handle.MSG_CHANNEL_REQUEST=ssh.sftp_handle-module.html#MSG_CHANNEL_REQUEST,Variable ssh.sftp_server.MSG_CHANNEL_REQUEST=ssh.sftp_server-module.html#MSG_CHANNEL_REQUEST,Variable ssh.sftp_si.MSG_CHANNEL_REQUEST=ssh.sftp_si-module.html#MSG_CHANNEL_REQUEST,Variable ssh.transport.MSG_CHANNEL_REQUEST=ssh.transport-module.html#MSG_CHANNEL_REQUEST,Variable ssh.util.MSG_CHANNEL_REQUEST=ssh.util-module.html#MSG_CHANNEL_REQUEST"><a title="ssh.auth_handler.MSG_CHANNEL_REQUEST
+ssh.channel.MSG_CHANNEL_REQUEST
+ssh.client.MSG_CHANNEL_REQUEST
+ssh.common.MSG_CHANNEL_REQUEST
+ssh.dsskey.MSG_CHANNEL_REQUEST
+ssh.hostkeys.MSG_CHANNEL_REQUEST
+ssh.kex_gex.MSG_CHANNEL_REQUEST
+ssh.kex_group1.MSG_CHANNEL_REQUEST
+ssh.packet.MSG_CHANNEL_REQUEST
+ssh.pkey.MSG_CHANNEL_REQUEST
+ssh.rsakey.MSG_CHANNEL_REQUEST
+ssh.server.MSG_CHANNEL_REQUEST
+ssh.sftp.MSG_CHANNEL_REQUEST
+ssh.sftp_attr.MSG_CHANNEL_REQUEST
+ssh.sftp_client.MSG_CHANNEL_REQUEST
+ssh.sftp_file.MSG_CHANNEL_REQUEST
+ssh.sftp_handle.MSG_CHANNEL_REQUEST
+ssh.sftp_server.MSG_CHANNEL_REQUEST
+ssh.sftp_si.MSG_CHANNEL_REQUEST
+ssh.transport.MSG_CHANNEL_REQUEST
+ssh.util.MSG_CHANNEL_REQUEST" class="py-name" href="#" onclick="return doclink('link-26', 'MSG_CHANNEL_REQUEST', 'link-26');">MSG_CHANNEL_REQUEST</a></tt><tt class="py-op">,</tt> \ </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt id="link-27" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_SUCCESS=ssh.auth_handler-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.channel.MSG_CHANNEL_SUCCESS=ssh.channel-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.client.MSG_CHANNEL_SUCCESS=ssh.client-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.common.MSG_CHANNEL_SUCCESS=ssh.common-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.dsskey.MSG_CHANNEL_SUCCESS=ssh.dsskey-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.hostkeys.MSG_CHANNEL_SUCCESS=ssh.hostkeys-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.kex_gex.MSG_CHANNEL_SUCCESS=ssh.kex_gex-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.kex_group1.MSG_CHANNEL_SUCCESS=ssh.kex_group1-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.packet.MSG_CHANNEL_SUCCESS=ssh.packet-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.pkey.MSG_CHANNEL_SUCCESS=ssh.pkey-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.rsakey.MSG_CHANNEL_SUCCESS=ssh.rsakey-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.server.MSG_CHANNEL_SUCCESS=ssh.server-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.sftp.MSG_CHANNEL_SUCCESS=ssh.sftp-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.sftp_attr.MSG_CHANNEL_SUCCESS=ssh.sftp_attr-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.sftp_client.MSG_CHANNEL_SUCCESS=ssh.sftp_client-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.sftp_file.MSG_CHANNEL_SUCCESS=ssh.sftp_file-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.sftp_handle.MSG_CHANNEL_SUCCESS=ssh.sftp_handle-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.sftp_server.MSG_CHANNEL_SUCCESS=ssh.sftp_server-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.sftp_si.MSG_CHANNEL_SUCCESS=ssh.sftp_si-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.transport.MSG_CHANNEL_SUCCESS=ssh.transport-module.html#MSG_CHANNEL_SUCCESS,Variable ssh.util.MSG_CHANNEL_SUCCESS=ssh.util-module.html#MSG_CHANNEL_SUCCESS"><a title="ssh.auth_handler.MSG_CHANNEL_SUCCESS
+ssh.channel.MSG_CHANNEL_SUCCESS
+ssh.client.MSG_CHANNEL_SUCCESS
+ssh.common.MSG_CHANNEL_SUCCESS
+ssh.dsskey.MSG_CHANNEL_SUCCESS
+ssh.hostkeys.MSG_CHANNEL_SUCCESS
+ssh.kex_gex.MSG_CHANNEL_SUCCESS
+ssh.kex_group1.MSG_CHANNEL_SUCCESS
+ssh.packet.MSG_CHANNEL_SUCCESS
+ssh.pkey.MSG_CHANNEL_SUCCESS
+ssh.rsakey.MSG_CHANNEL_SUCCESS
+ssh.server.MSG_CHANNEL_SUCCESS
+ssh.sftp.MSG_CHANNEL_SUCCESS
+ssh.sftp_attr.MSG_CHANNEL_SUCCESS
+ssh.sftp_client.MSG_CHANNEL_SUCCESS
+ssh.sftp_file.MSG_CHANNEL_SUCCESS
+ssh.sftp_handle.MSG_CHANNEL_SUCCESS
+ssh.sftp_server.MSG_CHANNEL_SUCCESS
+ssh.sftp_si.MSG_CHANNEL_SUCCESS
+ssh.transport.MSG_CHANNEL_SUCCESS
+ssh.util.MSG_CHANNEL_SUCCESS" class="py-name" href="#" onclick="return doclink('link-27', 'MSG_CHANNEL_SUCCESS', 'link-27');">MSG_CHANNEL_SUCCESS</a></tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name" targets="Variable ssh.auth_handler.MSG_CHANNEL_FAILURE=ssh.auth_handler-module.html#MSG_CHANNEL_FAILURE,Variable ssh.channel.MSG_CHANNEL_FAILURE=ssh.channel-module.html#MSG_CHANNEL_FAILURE,Variable ssh.client.MSG_CHANNEL_FAILURE=ssh.client-module.html#MSG_CHANNEL_FAILURE,Variable ssh.common.MSG_CHANNEL_FAILURE=ssh.common-module.html#MSG_CHANNEL_FAILURE,Variable ssh.dsskey.MSG_CHANNEL_FAILURE=ssh.dsskey-module.html#MSG_CHANNEL_FAILURE,Variable ssh.hostkeys.MSG_CHANNEL_FAILURE=ssh.hostkeys-module.html#MSG_CHANNEL_FAILURE,Variable ssh.kex_gex.MSG_CHANNEL_FAILURE=ssh.kex_gex-module.html#MSG_CHANNEL_FAILURE,Variable ssh.kex_group1.MSG_CHANNEL_FAILURE=ssh.kex_group1-module.html#MSG_CHANNEL_FAILURE,Variable ssh.packet.MSG_CHANNEL_FAILURE=ssh.packet-module.html#MSG_CHANNEL_FAILURE,Variable ssh.pkey.MSG_CHANNEL_FAILURE=ssh.pkey-module.html#MSG_CHANNEL_FAILURE,Variable ssh.rsakey.MSG_CHANNEL_FAILURE=ssh.rsakey-module.html#MSG_CHANNEL_FAILURE,Variable ssh.server.MSG_CHANNEL_FAILURE=ssh.server-module.html#MSG_CHANNEL_FAILURE,Variable ssh.sftp.MSG_CHANNEL_FAILURE=ssh.sftp-module.html#MSG_CHANNEL_FAILURE,Variable ssh.sftp_attr.MSG_CHANNEL_FAILURE=ssh.sftp_attr-module.html#MSG_CHANNEL_FAILURE,Variable ssh.sftp_client.MSG_CHANNEL_FAILURE=ssh.sftp_client-module.html#MSG_CHANNEL_FAILURE,Variable ssh.sftp_file.MSG_CHANNEL_FAILURE=ssh.sftp_file-module.html#MSG_CHANNEL_FAILURE,Variable ssh.sftp_handle.MSG_CHANNEL_FAILURE=ssh.sftp_handle-module.html#MSG_CHANNEL_FAILURE,Variable ssh.sftp_server.MSG_CHANNEL_FAILURE=ssh.sftp_server-module.html#MSG_CHANNEL_FAILURE,Variable ssh.sftp_si.MSG_CHANNEL_FAILURE=ssh.sftp_si-module.html#MSG_CHANNEL_FAILURE,Variable ssh.transport.MSG_CHANNEL_FAILURE=ssh.transport-module.html#MSG_CHANNEL_FAILURE,Variable ssh.util.MSG_CHANNEL_FAILURE=ssh.util-module.html#MSG_CHANNEL_FAILURE"><a title="ssh.auth_handler.MSG_CHANNEL_FAILURE
+ssh.channel.MSG_CHANNEL_FAILURE
+ssh.client.MSG_CHANNEL_FAILURE
+ssh.common.MSG_CHANNEL_FAILURE
+ssh.dsskey.MSG_CHANNEL_FAILURE
+ssh.hostkeys.MSG_CHANNEL_FAILURE
+ssh.kex_gex.MSG_CHANNEL_FAILURE
+ssh.kex_group1.MSG_CHANNEL_FAILURE
+ssh.packet.MSG_CHANNEL_FAILURE
+ssh.pkey.MSG_CHANNEL_FAILURE
+ssh.rsakey.MSG_CHANNEL_FAILURE
+ssh.server.MSG_CHANNEL_FAILURE
+ssh.sftp.MSG_CHANNEL_FAILURE
+ssh.sftp_attr.MSG_CHANNEL_FAILURE
+ssh.sftp_client.MSG_CHANNEL_FAILURE
+ssh.sftp_file.MSG_CHANNEL_FAILURE
+ssh.sftp_handle.MSG_CHANNEL_FAILURE
+ssh.sftp_server.MSG_CHANNEL_FAILURE
+ssh.sftp_si.MSG_CHANNEL_FAILURE
+ssh.transport.MSG_CHANNEL_FAILURE
+ssh.util.MSG_CHANNEL_FAILURE" class="py-name" href="#" onclick="return doclink('link-28', 'MSG_CHANNEL_FAILURE', 'link-28');">MSG_CHANNEL_FAILURE</a></tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">90</tt><tt class="py-op">,</tt> <tt class="py-number">101</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"># for debugging:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-29" class="py-name" targets="Variable ssh.common.MSG_NAMES=ssh.common-module.html#MSG_NAMES"><a title="ssh.common.MSG_NAMES" class="py-name" href="#" onclick="return doclink('link-29', 'MSG_NAMES', 'link-29');">MSG_NAMES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt id="link-30" class="py-name"><a title="ssh.auth_handler.MSG_DISCONNECT
+ssh.channel.MSG_DISCONNECT
+ssh.client.MSG_DISCONNECT
+ssh.common.MSG_DISCONNECT
+ssh.dsskey.MSG_DISCONNECT
+ssh.hostkeys.MSG_DISCONNECT
+ssh.kex_gex.MSG_DISCONNECT
+ssh.kex_group1.MSG_DISCONNECT
+ssh.packet.MSG_DISCONNECT
+ssh.pkey.MSG_DISCONNECT
+ssh.rsakey.MSG_DISCONNECT
+ssh.server.MSG_DISCONNECT
+ssh.sftp.MSG_DISCONNECT
+ssh.sftp_attr.MSG_DISCONNECT
+ssh.sftp_client.MSG_DISCONNECT
+ssh.sftp_file.MSG_DISCONNECT
+ssh.sftp_handle.MSG_DISCONNECT
+ssh.sftp_server.MSG_DISCONNECT
+ssh.sftp_si.MSG_DISCONNECT
+ssh.transport.MSG_DISCONNECT
+ssh.util.MSG_DISCONNECT" class="py-name" href="#" onclick="return doclink('link-30', 'MSG_DISCONNECT', 'link-0');">MSG_DISCONNECT</a></tt><tt class="py-op">:</tt> <tt class="py-string">'disconnect'</tt><tt class="py-op">,</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt id="link-31" class="py-name"><a title="ssh.auth_handler.MSG_IGNORE
+ssh.channel.MSG_IGNORE
+ssh.client.MSG_IGNORE
+ssh.common.MSG_IGNORE
+ssh.dsskey.MSG_IGNORE
+ssh.hostkeys.MSG_IGNORE
+ssh.kex_gex.MSG_IGNORE
+ssh.kex_group1.MSG_IGNORE
+ssh.packet.MSG_IGNORE
+ssh.pkey.MSG_IGNORE
+ssh.rsakey.MSG_IGNORE
+ssh.server.MSG_IGNORE
+ssh.sftp.MSG_IGNORE
+ssh.sftp_attr.MSG_IGNORE
+ssh.sftp_client.MSG_IGNORE
+ssh.sftp_file.MSG_IGNORE
+ssh.sftp_handle.MSG_IGNORE
+ssh.sftp_server.MSG_IGNORE
+ssh.sftp_si.MSG_IGNORE
+ssh.transport.MSG_IGNORE
+ssh.util.MSG_IGNORE" class="py-name" href="#" onclick="return doclink('link-31', 'MSG_IGNORE', 'link-1');">MSG_IGNORE</a></tt><tt class="py-op">:</tt> <tt class="py-string">'ignore'</tt><tt class="py-op">,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt id="link-32" class="py-name"><a title="ssh.auth_handler.MSG_UNIMPLEMENTED
+ssh.channel.MSG_UNIMPLEMENTED
+ssh.client.MSG_UNIMPLEMENTED
+ssh.common.MSG_UNIMPLEMENTED
+ssh.dsskey.MSG_UNIMPLEMENTED
+ssh.hostkeys.MSG_UNIMPLEMENTED
+ssh.kex_gex.MSG_UNIMPLEMENTED
+ssh.kex_group1.MSG_UNIMPLEMENTED
+ssh.packet.MSG_UNIMPLEMENTED
+ssh.pkey.MSG_UNIMPLEMENTED
+ssh.rsakey.MSG_UNIMPLEMENTED
+ssh.server.MSG_UNIMPLEMENTED
+ssh.sftp.MSG_UNIMPLEMENTED
+ssh.sftp_attr.MSG_UNIMPLEMENTED
+ssh.sftp_client.MSG_UNIMPLEMENTED
+ssh.sftp_file.MSG_UNIMPLEMENTED
+ssh.sftp_handle.MSG_UNIMPLEMENTED
+ssh.sftp_server.MSG_UNIMPLEMENTED
+ssh.sftp_si.MSG_UNIMPLEMENTED
+ssh.transport.MSG_UNIMPLEMENTED
+ssh.util.MSG_UNIMPLEMENTED" class="py-name" href="#" onclick="return doclink('link-32', 'MSG_UNIMPLEMENTED', 'link-2');">MSG_UNIMPLEMENTED</a></tt><tt class="py-op">:</tt> <tt class="py-string">'unimplemented'</tt><tt class="py-op">,</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt id="link-33" class="py-name"><a title="ssh.auth_handler.MSG_DEBUG
+ssh.channel.MSG_DEBUG
+ssh.client.MSG_DEBUG
+ssh.common.MSG_DEBUG
+ssh.dsskey.MSG_DEBUG
+ssh.hostkeys.MSG_DEBUG
+ssh.kex_gex.MSG_DEBUG
+ssh.kex_group1.MSG_DEBUG
+ssh.packet.MSG_DEBUG
+ssh.pkey.MSG_DEBUG
+ssh.rsakey.MSG_DEBUG
+ssh.server.MSG_DEBUG
+ssh.sftp.MSG_DEBUG
+ssh.sftp_attr.MSG_DEBUG
+ssh.sftp_client.MSG_DEBUG
+ssh.sftp_file.MSG_DEBUG
+ssh.sftp_handle.MSG_DEBUG
+ssh.sftp_server.MSG_DEBUG
+ssh.sftp_si.MSG_DEBUG
+ssh.transport.MSG_DEBUG
+ssh.util.MSG_DEBUG" class="py-name" href="#" onclick="return doclink('link-33', 'MSG_DEBUG', 'link-3');">MSG_DEBUG</a></tt><tt class="py-op">:</tt> <tt class="py-string">'debug'</tt><tt class="py-op">,</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">    <tt id="link-34" class="py-name"><a title="ssh.auth_handler.MSG_SERVICE_REQUEST
+ssh.channel.MSG_SERVICE_REQUEST
+ssh.client.MSG_SERVICE_REQUEST
+ssh.common.MSG_SERVICE_REQUEST
+ssh.dsskey.MSG_SERVICE_REQUEST
+ssh.hostkeys.MSG_SERVICE_REQUEST
+ssh.kex_gex.MSG_SERVICE_REQUEST
+ssh.kex_group1.MSG_SERVICE_REQUEST
+ssh.packet.MSG_SERVICE_REQUEST
+ssh.pkey.MSG_SERVICE_REQUEST
+ssh.rsakey.MSG_SERVICE_REQUEST
+ssh.server.MSG_SERVICE_REQUEST
+ssh.sftp.MSG_SERVICE_REQUEST
+ssh.sftp_attr.MSG_SERVICE_REQUEST
+ssh.sftp_client.MSG_SERVICE_REQUEST
+ssh.sftp_file.MSG_SERVICE_REQUEST
+ssh.sftp_handle.MSG_SERVICE_REQUEST
+ssh.sftp_server.MSG_SERVICE_REQUEST
+ssh.sftp_si.MSG_SERVICE_REQUEST
+ssh.transport.MSG_SERVICE_REQUEST
+ssh.util.MSG_SERVICE_REQUEST" class="py-name" href="#" onclick="return doclink('link-34', 'MSG_SERVICE_REQUEST', 'link-4');">MSG_SERVICE_REQUEST</a></tt><tt class="py-op">:</tt> <tt class="py-string">'service-request'</tt><tt class="py-op">,</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt id="link-35" class="py-name"><a title="ssh.auth_handler.MSG_SERVICE_ACCEPT
+ssh.channel.MSG_SERVICE_ACCEPT
+ssh.client.MSG_SERVICE_ACCEPT
+ssh.common.MSG_SERVICE_ACCEPT
+ssh.dsskey.MSG_SERVICE_ACCEPT
+ssh.hostkeys.MSG_SERVICE_ACCEPT
+ssh.kex_gex.MSG_SERVICE_ACCEPT
+ssh.kex_group1.MSG_SERVICE_ACCEPT
+ssh.packet.MSG_SERVICE_ACCEPT
+ssh.pkey.MSG_SERVICE_ACCEPT
+ssh.rsakey.MSG_SERVICE_ACCEPT
+ssh.server.MSG_SERVICE_ACCEPT
+ssh.sftp.MSG_SERVICE_ACCEPT
+ssh.sftp_attr.MSG_SERVICE_ACCEPT
+ssh.sftp_client.MSG_SERVICE_ACCEPT
+ssh.sftp_file.MSG_SERVICE_ACCEPT
+ssh.sftp_handle.MSG_SERVICE_ACCEPT
+ssh.sftp_server.MSG_SERVICE_ACCEPT
+ssh.sftp_si.MSG_SERVICE_ACCEPT
+ssh.transport.MSG_SERVICE_ACCEPT
+ssh.util.MSG_SERVICE_ACCEPT" class="py-name" href="#" onclick="return doclink('link-35', 'MSG_SERVICE_ACCEPT', 'link-5');">MSG_SERVICE_ACCEPT</a></tt><tt class="py-op">:</tt> <tt class="py-string">'service-accept'</tt><tt class="py-op">,</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt id="link-36" class="py-name"><a title="ssh.auth_handler.MSG_KEXINIT
+ssh.channel.MSG_KEXINIT
+ssh.client.MSG_KEXINIT
+ssh.common.MSG_KEXINIT
+ssh.dsskey.MSG_KEXINIT
+ssh.hostkeys.MSG_KEXINIT
+ssh.kex_gex.MSG_KEXINIT
+ssh.kex_group1.MSG_KEXINIT
+ssh.packet.MSG_KEXINIT
+ssh.pkey.MSG_KEXINIT
+ssh.rsakey.MSG_KEXINIT
+ssh.server.MSG_KEXINIT
+ssh.sftp.MSG_KEXINIT
+ssh.sftp_attr.MSG_KEXINIT
+ssh.sftp_client.MSG_KEXINIT
+ssh.sftp_file.MSG_KEXINIT
+ssh.sftp_handle.MSG_KEXINIT
+ssh.sftp_server.MSG_KEXINIT
+ssh.sftp_si.MSG_KEXINIT
+ssh.transport.MSG_KEXINIT
+ssh.util.MSG_KEXINIT" class="py-name" href="#" onclick="return doclink('link-36', 'MSG_KEXINIT', 'link-6');">MSG_KEXINIT</a></tt><tt class="py-op">:</tt> <tt class="py-string">'kexinit'</tt><tt class="py-op">,</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt id="link-37" class="py-name"><a title="ssh.auth_handler.MSG_NEWKEYS
+ssh.channel.MSG_NEWKEYS
+ssh.client.MSG_NEWKEYS
+ssh.common.MSG_NEWKEYS
+ssh.dsskey.MSG_NEWKEYS
+ssh.hostkeys.MSG_NEWKEYS
+ssh.kex_gex.MSG_NEWKEYS
+ssh.kex_group1.MSG_NEWKEYS
+ssh.packet.MSG_NEWKEYS
+ssh.pkey.MSG_NEWKEYS
+ssh.rsakey.MSG_NEWKEYS
+ssh.server.MSG_NEWKEYS
+ssh.sftp.MSG_NEWKEYS
+ssh.sftp_attr.MSG_NEWKEYS
+ssh.sftp_client.MSG_NEWKEYS
+ssh.sftp_file.MSG_NEWKEYS
+ssh.sftp_handle.MSG_NEWKEYS
+ssh.sftp_server.MSG_NEWKEYS
+ssh.sftp_si.MSG_NEWKEYS
+ssh.transport.MSG_NEWKEYS
+ssh.util.MSG_NEWKEYS" class="py-name" href="#" onclick="return doclink('link-37', 'MSG_NEWKEYS', 'link-7');">MSG_NEWKEYS</a></tt><tt class="py-op">:</tt> <tt class="py-string">'newkeys'</tt><tt class="py-op">,</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-number">30</tt><tt class="py-op">:</tt> <tt class="py-string">'kex30'</tt><tt class="py-op">,</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt class="py-number">31</tt><tt class="py-op">:</tt> <tt class="py-string">'kex31'</tt><tt class="py-op">,</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-number">32</tt><tt class="py-op">:</tt> <tt class="py-string">'kex32'</tt><tt class="py-op">,</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-number">33</tt><tt class="py-op">:</tt> <tt class="py-string">'kex33'</tt><tt class="py-op">,</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-number">34</tt><tt class="py-op">:</tt> <tt class="py-string">'kex34'</tt><tt class="py-op">,</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt id="link-38" class="py-name"><a title="ssh.auth_handler.MSG_USERAUTH_REQUEST
+ssh.channel.MSG_USERAUTH_REQUEST
+ssh.client.MSG_USERAUTH_REQUEST
+ssh.common.MSG_USERAUTH_REQUEST
+ssh.dsskey.MSG_USERAUTH_REQUEST
+ssh.hostkeys.MSG_USERAUTH_REQUEST
+ssh.kex_gex.MSG_USERAUTH_REQUEST
+ssh.kex_group1.MSG_USERAUTH_REQUEST
+ssh.packet.MSG_USERAUTH_REQUEST
+ssh.pkey.MSG_USERAUTH_REQUEST
+ssh.rsakey.MSG_USERAUTH_REQUEST
+ssh.server.MSG_USERAUTH_REQUEST
+ssh.sftp.MSG_USERAUTH_REQUEST
+ssh.sftp_attr.MSG_USERAUTH_REQUEST
+ssh.sftp_client.MSG_USERAUTH_REQUEST
+ssh.sftp_file.MSG_USERAUTH_REQUEST
+ssh.sftp_handle.MSG_USERAUTH_REQUEST
+ssh.sftp_server.MSG_USERAUTH_REQUEST
+ssh.sftp_si.MSG_USERAUTH_REQUEST
+ssh.transport.MSG_USERAUTH_REQUEST
+ssh.util.MSG_USERAUTH_REQUEST" class="py-name" href="#" onclick="return doclink('link-38', 'MSG_USERAUTH_REQUEST', 'link-8');">MSG_USERAUTH_REQUEST</a></tt><tt class="py-op">:</tt> <tt class="py-string">'userauth-request'</tt><tt class="py-op">,</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    <tt id="link-39" class="py-name"><a title="ssh.auth_handler.MSG_USERAUTH_FAILURE
+ssh.channel.MSG_USERAUTH_FAILURE
+ssh.client.MSG_USERAUTH_FAILURE
+ssh.common.MSG_USERAUTH_FAILURE
+ssh.dsskey.MSG_USERAUTH_FAILURE
+ssh.hostkeys.MSG_USERAUTH_FAILURE
+ssh.kex_gex.MSG_USERAUTH_FAILURE
+ssh.kex_group1.MSG_USERAUTH_FAILURE
+ssh.packet.MSG_USERAUTH_FAILURE
+ssh.pkey.MSG_USERAUTH_FAILURE
+ssh.rsakey.MSG_USERAUTH_FAILURE
+ssh.server.MSG_USERAUTH_FAILURE
+ssh.sftp.MSG_USERAUTH_FAILURE
+ssh.sftp_attr.MSG_USERAUTH_FAILURE
+ssh.sftp_client.MSG_USERAUTH_FAILURE
+ssh.sftp_file.MSG_USERAUTH_FAILURE
+ssh.sftp_handle.MSG_USERAUTH_FAILURE
+ssh.sftp_server.MSG_USERAUTH_FAILURE
+ssh.sftp_si.MSG_USERAUTH_FAILURE
+ssh.transport.MSG_USERAUTH_FAILURE
+ssh.util.MSG_USERAUTH_FAILURE" class="py-name" href="#" onclick="return doclink('link-39', 'MSG_USERAUTH_FAILURE', 'link-9');">MSG_USERAUTH_FAILURE</a></tt><tt class="py-op">:</tt> <tt class="py-string">'userauth-failure'</tt><tt class="py-op">,</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt id="link-40" class="py-name"><a title="ssh.auth_handler.MSG_USERAUTH_SUCCESS
+ssh.channel.MSG_USERAUTH_SUCCESS
+ssh.client.MSG_USERAUTH_SUCCESS
+ssh.common.MSG_USERAUTH_SUCCESS
+ssh.dsskey.MSG_USERAUTH_SUCCESS
+ssh.hostkeys.MSG_USERAUTH_SUCCESS
+ssh.kex_gex.MSG_USERAUTH_SUCCESS
+ssh.kex_group1.MSG_USERAUTH_SUCCESS
+ssh.packet.MSG_USERAUTH_SUCCESS
+ssh.pkey.MSG_USERAUTH_SUCCESS
+ssh.rsakey.MSG_USERAUTH_SUCCESS
+ssh.server.MSG_USERAUTH_SUCCESS
+ssh.sftp.MSG_USERAUTH_SUCCESS
+ssh.sftp_attr.MSG_USERAUTH_SUCCESS
+ssh.sftp_client.MSG_USERAUTH_SUCCESS
+ssh.sftp_file.MSG_USERAUTH_SUCCESS
+ssh.sftp_handle.MSG_USERAUTH_SUCCESS
+ssh.sftp_server.MSG_USERAUTH_SUCCESS
+ssh.sftp_si.MSG_USERAUTH_SUCCESS
+ssh.transport.MSG_USERAUTH_SUCCESS
+ssh.util.MSG_USERAUTH_SUCCESS" class="py-name" href="#" onclick="return doclink('link-40', 'MSG_USERAUTH_SUCCESS', 'link-10');">MSG_USERAUTH_SUCCESS</a></tt><tt class="py-op">:</tt> <tt class="py-string">'userauth-success'</tt><tt class="py-op">,</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt id="link-41" class="py-name"><a title="ssh.auth_handler.MSG_USERAUTH_BANNER
+ssh.channel.MSG_USERAUTH_BANNER
+ssh.client.MSG_USERAUTH_BANNER
+ssh.common.MSG_USERAUTH_BANNER
+ssh.dsskey.MSG_USERAUTH_BANNER
+ssh.hostkeys.MSG_USERAUTH_BANNER
+ssh.kex_gex.MSG_USERAUTH_BANNER
+ssh.kex_group1.MSG_USERAUTH_BANNER
+ssh.packet.MSG_USERAUTH_BANNER
+ssh.pkey.MSG_USERAUTH_BANNER
+ssh.rsakey.MSG_USERAUTH_BANNER
+ssh.server.MSG_USERAUTH_BANNER
+ssh.sftp.MSG_USERAUTH_BANNER
+ssh.sftp_attr.MSG_USERAUTH_BANNER
+ssh.sftp_client.MSG_USERAUTH_BANNER
+ssh.sftp_file.MSG_USERAUTH_BANNER
+ssh.sftp_handle.MSG_USERAUTH_BANNER
+ssh.sftp_server.MSG_USERAUTH_BANNER
+ssh.sftp_si.MSG_USERAUTH_BANNER
+ssh.transport.MSG_USERAUTH_BANNER
+ssh.util.MSG_USERAUTH_BANNER" class="py-name" href="#" onclick="return doclink('link-41', 'MSG_USERAUTH_BANNER', 'link-11');">MSG_USERAUTH_BANNER</a></tt><tt class="py-op">:</tt> <tt class="py-string">'userauth--banner'</tt><tt class="py-op">,</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt id="link-42" class="py-name"><a title="ssh.common.MSG_USERAUTH_PK_OK" class="py-name" href="#" onclick="return doclink('link-42', 'MSG_USERAUTH_PK_OK', 'link-12');">MSG_USERAUTH_PK_OK</a></tt><tt class="py-op">:</tt> <tt class="py-string">'userauth-60(pk-ok/info-request)'</tt><tt class="py-op">,</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt id="link-43" class="py-name"><a title="ssh.auth_handler.MSG_USERAUTH_INFO_RESPONSE
+ssh.channel.MSG_USERAUTH_INFO_RESPONSE
+ssh.client.MSG_USERAUTH_INFO_RESPONSE
+ssh.common.MSG_USERAUTH_INFO_RESPONSE
+ssh.dsskey.MSG_USERAUTH_INFO_RESPONSE
+ssh.hostkeys.MSG_USERAUTH_INFO_RESPONSE
+ssh.kex_gex.MSG_USERAUTH_INFO_RESPONSE
+ssh.kex_group1.MSG_USERAUTH_INFO_RESPONSE
+ssh.packet.MSG_USERAUTH_INFO_RESPONSE
+ssh.pkey.MSG_USERAUTH_INFO_RESPONSE
+ssh.rsakey.MSG_USERAUTH_INFO_RESPONSE
+ssh.server.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_attr.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_client.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_file.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_handle.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_server.MSG_USERAUTH_INFO_RESPONSE
+ssh.sftp_si.MSG_USERAUTH_INFO_RESPONSE
+ssh.transport.MSG_USERAUTH_INFO_RESPONSE
+ssh.util.MSG_USERAUTH_INFO_RESPONSE" class="py-name" href="#" onclick="return doclink('link-43', 'MSG_USERAUTH_INFO_RESPONSE', 'link-14');">MSG_USERAUTH_INFO_RESPONSE</a></tt><tt class="py-op">:</tt> <tt class="py-string">'userauth-info-response'</tt><tt class="py-op">,</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt id="link-44" class="py-name"><a title="ssh.auth_handler.MSG_GLOBAL_REQUEST
+ssh.channel.MSG_GLOBAL_REQUEST
+ssh.client.MSG_GLOBAL_REQUEST
+ssh.common.MSG_GLOBAL_REQUEST
+ssh.dsskey.MSG_GLOBAL_REQUEST
+ssh.hostkeys.MSG_GLOBAL_REQUEST
+ssh.kex_gex.MSG_GLOBAL_REQUEST
+ssh.kex_group1.MSG_GLOBAL_REQUEST
+ssh.packet.MSG_GLOBAL_REQUEST
+ssh.pkey.MSG_GLOBAL_REQUEST
+ssh.rsakey.MSG_GLOBAL_REQUEST
+ssh.server.MSG_GLOBAL_REQUEST
+ssh.sftp.MSG_GLOBAL_REQUEST
+ssh.sftp_attr.MSG_GLOBAL_REQUEST
+ssh.sftp_client.MSG_GLOBAL_REQUEST
+ssh.sftp_file.MSG_GLOBAL_REQUEST
+ssh.sftp_handle.MSG_GLOBAL_REQUEST
+ssh.sftp_server.MSG_GLOBAL_REQUEST
+ssh.sftp_si.MSG_GLOBAL_REQUEST
+ssh.transport.MSG_GLOBAL_REQUEST
+ssh.util.MSG_GLOBAL_REQUEST" class="py-name" href="#" onclick="return doclink('link-44', 'MSG_GLOBAL_REQUEST', 'link-15');">MSG_GLOBAL_REQUEST</a></tt><tt class="py-op">:</tt> <tt class="py-string">'global-request'</tt><tt class="py-op">,</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt id="link-45" class="py-name"><a title="ssh.auth_handler.MSG_REQUEST_SUCCESS
+ssh.channel.MSG_REQUEST_SUCCESS
+ssh.client.MSG_REQUEST_SUCCESS
+ssh.common.MSG_REQUEST_SUCCESS
+ssh.dsskey.MSG_REQUEST_SUCCESS
+ssh.hostkeys.MSG_REQUEST_SUCCESS
+ssh.kex_gex.MSG_REQUEST_SUCCESS
+ssh.kex_group1.MSG_REQUEST_SUCCESS
+ssh.packet.MSG_REQUEST_SUCCESS
+ssh.pkey.MSG_REQUEST_SUCCESS
+ssh.rsakey.MSG_REQUEST_SUCCESS
+ssh.server.MSG_REQUEST_SUCCESS
+ssh.sftp.MSG_REQUEST_SUCCESS
+ssh.sftp_attr.MSG_REQUEST_SUCCESS
+ssh.sftp_client.MSG_REQUEST_SUCCESS
+ssh.sftp_file.MSG_REQUEST_SUCCESS
+ssh.sftp_handle.MSG_REQUEST_SUCCESS
+ssh.sftp_server.MSG_REQUEST_SUCCESS
+ssh.sftp_si.MSG_REQUEST_SUCCESS
+ssh.transport.MSG_REQUEST_SUCCESS
+ssh.util.MSG_REQUEST_SUCCESS" class="py-name" href="#" onclick="return doclink('link-45', 'MSG_REQUEST_SUCCESS', 'link-16');">MSG_REQUEST_SUCCESS</a></tt><tt class="py-op">:</tt> <tt class="py-string">'request-success'</tt><tt class="py-op">,</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt id="link-46" class="py-name"><a title="ssh.auth_handler.MSG_REQUEST_FAILURE
+ssh.channel.MSG_REQUEST_FAILURE
+ssh.client.MSG_REQUEST_FAILURE
+ssh.common.MSG_REQUEST_FAILURE
+ssh.dsskey.MSG_REQUEST_FAILURE
+ssh.hostkeys.MSG_REQUEST_FAILURE
+ssh.kex_gex.MSG_REQUEST_FAILURE
+ssh.kex_group1.MSG_REQUEST_FAILURE
+ssh.packet.MSG_REQUEST_FAILURE
+ssh.pkey.MSG_REQUEST_FAILURE
+ssh.rsakey.MSG_REQUEST_FAILURE
+ssh.server.MSG_REQUEST_FAILURE
+ssh.sftp.MSG_REQUEST_FAILURE
+ssh.sftp_attr.MSG_REQUEST_FAILURE
+ssh.sftp_client.MSG_REQUEST_FAILURE
+ssh.sftp_file.MSG_REQUEST_FAILURE
+ssh.sftp_handle.MSG_REQUEST_FAILURE
+ssh.sftp_server.MSG_REQUEST_FAILURE
+ssh.sftp_si.MSG_REQUEST_FAILURE
+ssh.transport.MSG_REQUEST_FAILURE
+ssh.util.MSG_REQUEST_FAILURE" class="py-name" href="#" onclick="return doclink('link-46', 'MSG_REQUEST_FAILURE', 'link-17');">MSG_REQUEST_FAILURE</a></tt><tt class="py-op">:</tt> <tt class="py-string">'request-failure'</tt><tt class="py-op">,</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt id="link-47" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_OPEN
+ssh.channel.MSG_CHANNEL_OPEN
+ssh.client.MSG_CHANNEL_OPEN
+ssh.common.MSG_CHANNEL_OPEN
+ssh.dsskey.MSG_CHANNEL_OPEN
+ssh.hostkeys.MSG_CHANNEL_OPEN
+ssh.kex_gex.MSG_CHANNEL_OPEN
+ssh.kex_group1.MSG_CHANNEL_OPEN
+ssh.packet.MSG_CHANNEL_OPEN
+ssh.pkey.MSG_CHANNEL_OPEN
+ssh.rsakey.MSG_CHANNEL_OPEN
+ssh.server.MSG_CHANNEL_OPEN
+ssh.sftp.MSG_CHANNEL_OPEN
+ssh.sftp_attr.MSG_CHANNEL_OPEN
+ssh.sftp_client.MSG_CHANNEL_OPEN
+ssh.sftp_file.MSG_CHANNEL_OPEN
+ssh.sftp_handle.MSG_CHANNEL_OPEN
+ssh.sftp_server.MSG_CHANNEL_OPEN
+ssh.sftp_si.MSG_CHANNEL_OPEN
+ssh.transport.MSG_CHANNEL_OPEN
+ssh.util.MSG_CHANNEL_OPEN" class="py-name" href="#" onclick="return doclink('link-47', 'MSG_CHANNEL_OPEN', 'link-18');">MSG_CHANNEL_OPEN</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-open'</tt><tt class="py-op">,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">    <tt id="link-48" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_OPEN_SUCCESS
+ssh.channel.MSG_CHANNEL_OPEN_SUCCESS
+ssh.client.MSG_CHANNEL_OPEN_SUCCESS
+ssh.common.MSG_CHANNEL_OPEN_SUCCESS
+ssh.dsskey.MSG_CHANNEL_OPEN_SUCCESS
+ssh.hostkeys.MSG_CHANNEL_OPEN_SUCCESS
+ssh.kex_gex.MSG_CHANNEL_OPEN_SUCCESS
+ssh.kex_group1.MSG_CHANNEL_OPEN_SUCCESS
+ssh.packet.MSG_CHANNEL_OPEN_SUCCESS
+ssh.pkey.MSG_CHANNEL_OPEN_SUCCESS
+ssh.rsakey.MSG_CHANNEL_OPEN_SUCCESS
+ssh.server.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_attr.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_client.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_file.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_handle.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_server.MSG_CHANNEL_OPEN_SUCCESS
+ssh.sftp_si.MSG_CHANNEL_OPEN_SUCCESS
+ssh.transport.MSG_CHANNEL_OPEN_SUCCESS
+ssh.util.MSG_CHANNEL_OPEN_SUCCESS" class="py-name" href="#" onclick="return doclink('link-48', 'MSG_CHANNEL_OPEN_SUCCESS', 'link-19');">MSG_CHANNEL_OPEN_SUCCESS</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-open-success'</tt><tt class="py-op">,</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt id="link-49" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_OPEN_FAILURE
+ssh.channel.MSG_CHANNEL_OPEN_FAILURE
+ssh.client.MSG_CHANNEL_OPEN_FAILURE
+ssh.common.MSG_CHANNEL_OPEN_FAILURE
+ssh.dsskey.MSG_CHANNEL_OPEN_FAILURE
+ssh.hostkeys.MSG_CHANNEL_OPEN_FAILURE
+ssh.kex_gex.MSG_CHANNEL_OPEN_FAILURE
+ssh.kex_group1.MSG_CHANNEL_OPEN_FAILURE
+ssh.packet.MSG_CHANNEL_OPEN_FAILURE
+ssh.pkey.MSG_CHANNEL_OPEN_FAILURE
+ssh.rsakey.MSG_CHANNEL_OPEN_FAILURE
+ssh.server.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_attr.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_client.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_file.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_handle.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_server.MSG_CHANNEL_OPEN_FAILURE
+ssh.sftp_si.MSG_CHANNEL_OPEN_FAILURE
+ssh.transport.MSG_CHANNEL_OPEN_FAILURE
+ssh.util.MSG_CHANNEL_OPEN_FAILURE" class="py-name" href="#" onclick="return doclink('link-49', 'MSG_CHANNEL_OPEN_FAILURE', 'link-20');">MSG_CHANNEL_OPEN_FAILURE</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-open-failure'</tt><tt class="py-op">,</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt id="link-50" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_WINDOW_ADJUST
+ssh.channel.MSG_CHANNEL_WINDOW_ADJUST
+ssh.client.MSG_CHANNEL_WINDOW_ADJUST
+ssh.common.MSG_CHANNEL_WINDOW_ADJUST
+ssh.dsskey.MSG_CHANNEL_WINDOW_ADJUST
+ssh.hostkeys.MSG_CHANNEL_WINDOW_ADJUST
+ssh.kex_gex.MSG_CHANNEL_WINDOW_ADJUST
+ssh.kex_group1.MSG_CHANNEL_WINDOW_ADJUST
+ssh.packet.MSG_CHANNEL_WINDOW_ADJUST
+ssh.pkey.MSG_CHANNEL_WINDOW_ADJUST
+ssh.rsakey.MSG_CHANNEL_WINDOW_ADJUST
+ssh.server.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_attr.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_client.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_file.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_handle.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_server.MSG_CHANNEL_WINDOW_ADJUST
+ssh.sftp_si.MSG_CHANNEL_WINDOW_ADJUST
+ssh.transport.MSG_CHANNEL_WINDOW_ADJUST
+ssh.util.MSG_CHANNEL_WINDOW_ADJUST" class="py-name" href="#" onclick="return doclink('link-50', 'MSG_CHANNEL_WINDOW_ADJUST', 'link-21');">MSG_CHANNEL_WINDOW_ADJUST</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-window-adjust'</tt><tt class="py-op">,</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt id="link-51" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_DATA
+ssh.channel.MSG_CHANNEL_DATA
+ssh.client.MSG_CHANNEL_DATA
+ssh.common.MSG_CHANNEL_DATA
+ssh.dsskey.MSG_CHANNEL_DATA
+ssh.hostkeys.MSG_CHANNEL_DATA
+ssh.kex_gex.MSG_CHANNEL_DATA
+ssh.kex_group1.MSG_CHANNEL_DATA
+ssh.packet.MSG_CHANNEL_DATA
+ssh.pkey.MSG_CHANNEL_DATA
+ssh.rsakey.MSG_CHANNEL_DATA
+ssh.server.MSG_CHANNEL_DATA
+ssh.sftp.MSG_CHANNEL_DATA
+ssh.sftp_attr.MSG_CHANNEL_DATA
+ssh.sftp_client.MSG_CHANNEL_DATA
+ssh.sftp_file.MSG_CHANNEL_DATA
+ssh.sftp_handle.MSG_CHANNEL_DATA
+ssh.sftp_server.MSG_CHANNEL_DATA
+ssh.sftp_si.MSG_CHANNEL_DATA
+ssh.transport.MSG_CHANNEL_DATA
+ssh.util.MSG_CHANNEL_DATA" class="py-name" href="#" onclick="return doclink('link-51', 'MSG_CHANNEL_DATA', 'link-22');">MSG_CHANNEL_DATA</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-data'</tt><tt class="py-op">,</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">    <tt id="link-52" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_EXTENDED_DATA
+ssh.channel.MSG_CHANNEL_EXTENDED_DATA
+ssh.client.MSG_CHANNEL_EXTENDED_DATA
+ssh.common.MSG_CHANNEL_EXTENDED_DATA
+ssh.dsskey.MSG_CHANNEL_EXTENDED_DATA
+ssh.hostkeys.MSG_CHANNEL_EXTENDED_DATA
+ssh.kex_gex.MSG_CHANNEL_EXTENDED_DATA
+ssh.kex_group1.MSG_CHANNEL_EXTENDED_DATA
+ssh.packet.MSG_CHANNEL_EXTENDED_DATA
+ssh.pkey.MSG_CHANNEL_EXTENDED_DATA
+ssh.rsakey.MSG_CHANNEL_EXTENDED_DATA
+ssh.server.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_attr.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_client.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_file.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_handle.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_server.MSG_CHANNEL_EXTENDED_DATA
+ssh.sftp_si.MSG_CHANNEL_EXTENDED_DATA
+ssh.transport.MSG_CHANNEL_EXTENDED_DATA
+ssh.util.MSG_CHANNEL_EXTENDED_DATA" class="py-name" href="#" onclick="return doclink('link-52', 'MSG_CHANNEL_EXTENDED_DATA', 'link-23');">MSG_CHANNEL_EXTENDED_DATA</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-extended-data'</tt><tt class="py-op">,</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt id="link-53" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_EOF
+ssh.channel.MSG_CHANNEL_EOF
+ssh.client.MSG_CHANNEL_EOF
+ssh.common.MSG_CHANNEL_EOF
+ssh.dsskey.MSG_CHANNEL_EOF
+ssh.hostkeys.MSG_CHANNEL_EOF
+ssh.kex_gex.MSG_CHANNEL_EOF
+ssh.kex_group1.MSG_CHANNEL_EOF
+ssh.packet.MSG_CHANNEL_EOF
+ssh.pkey.MSG_CHANNEL_EOF
+ssh.rsakey.MSG_CHANNEL_EOF
+ssh.server.MSG_CHANNEL_EOF
+ssh.sftp.MSG_CHANNEL_EOF
+ssh.sftp_attr.MSG_CHANNEL_EOF
+ssh.sftp_client.MSG_CHANNEL_EOF
+ssh.sftp_file.MSG_CHANNEL_EOF
+ssh.sftp_handle.MSG_CHANNEL_EOF
+ssh.sftp_server.MSG_CHANNEL_EOF
+ssh.sftp_si.MSG_CHANNEL_EOF
+ssh.transport.MSG_CHANNEL_EOF
+ssh.util.MSG_CHANNEL_EOF" class="py-name" href="#" onclick="return doclink('link-53', 'MSG_CHANNEL_EOF', 'link-24');">MSG_CHANNEL_EOF</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-eof'</tt><tt class="py-op">,</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">    <tt id="link-54" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_CLOSE
+ssh.channel.MSG_CHANNEL_CLOSE
+ssh.client.MSG_CHANNEL_CLOSE
+ssh.common.MSG_CHANNEL_CLOSE
+ssh.dsskey.MSG_CHANNEL_CLOSE
+ssh.hostkeys.MSG_CHANNEL_CLOSE
+ssh.kex_gex.MSG_CHANNEL_CLOSE
+ssh.kex_group1.MSG_CHANNEL_CLOSE
+ssh.packet.MSG_CHANNEL_CLOSE
+ssh.pkey.MSG_CHANNEL_CLOSE
+ssh.rsakey.MSG_CHANNEL_CLOSE
+ssh.server.MSG_CHANNEL_CLOSE
+ssh.sftp.MSG_CHANNEL_CLOSE
+ssh.sftp_attr.MSG_CHANNEL_CLOSE
+ssh.sftp_client.MSG_CHANNEL_CLOSE
+ssh.sftp_file.MSG_CHANNEL_CLOSE
+ssh.sftp_handle.MSG_CHANNEL_CLOSE
+ssh.sftp_server.MSG_CHANNEL_CLOSE
+ssh.sftp_si.MSG_CHANNEL_CLOSE
+ssh.transport.MSG_CHANNEL_CLOSE
+ssh.util.MSG_CHANNEL_CLOSE" class="py-name" href="#" onclick="return doclink('link-54', 'MSG_CHANNEL_CLOSE', 'link-25');">MSG_CHANNEL_CLOSE</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-close'</tt><tt class="py-op">,</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt id="link-55" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_REQUEST
+ssh.channel.MSG_CHANNEL_REQUEST
+ssh.client.MSG_CHANNEL_REQUEST
+ssh.common.MSG_CHANNEL_REQUEST
+ssh.dsskey.MSG_CHANNEL_REQUEST
+ssh.hostkeys.MSG_CHANNEL_REQUEST
+ssh.kex_gex.MSG_CHANNEL_REQUEST
+ssh.kex_group1.MSG_CHANNEL_REQUEST
+ssh.packet.MSG_CHANNEL_REQUEST
+ssh.pkey.MSG_CHANNEL_REQUEST
+ssh.rsakey.MSG_CHANNEL_REQUEST
+ssh.server.MSG_CHANNEL_REQUEST
+ssh.sftp.MSG_CHANNEL_REQUEST
+ssh.sftp_attr.MSG_CHANNEL_REQUEST
+ssh.sftp_client.MSG_CHANNEL_REQUEST
+ssh.sftp_file.MSG_CHANNEL_REQUEST
+ssh.sftp_handle.MSG_CHANNEL_REQUEST
+ssh.sftp_server.MSG_CHANNEL_REQUEST
+ssh.sftp_si.MSG_CHANNEL_REQUEST
+ssh.transport.MSG_CHANNEL_REQUEST
+ssh.util.MSG_CHANNEL_REQUEST" class="py-name" href="#" onclick="return doclink('link-55', 'MSG_CHANNEL_REQUEST', 'link-26');">MSG_CHANNEL_REQUEST</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-request'</tt><tt class="py-op">,</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt id="link-56" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_SUCCESS
+ssh.channel.MSG_CHANNEL_SUCCESS
+ssh.client.MSG_CHANNEL_SUCCESS
+ssh.common.MSG_CHANNEL_SUCCESS
+ssh.dsskey.MSG_CHANNEL_SUCCESS
+ssh.hostkeys.MSG_CHANNEL_SUCCESS
+ssh.kex_gex.MSG_CHANNEL_SUCCESS
+ssh.kex_group1.MSG_CHANNEL_SUCCESS
+ssh.packet.MSG_CHANNEL_SUCCESS
+ssh.pkey.MSG_CHANNEL_SUCCESS
+ssh.rsakey.MSG_CHANNEL_SUCCESS
+ssh.server.MSG_CHANNEL_SUCCESS
+ssh.sftp.MSG_CHANNEL_SUCCESS
+ssh.sftp_attr.MSG_CHANNEL_SUCCESS
+ssh.sftp_client.MSG_CHANNEL_SUCCESS
+ssh.sftp_file.MSG_CHANNEL_SUCCESS
+ssh.sftp_handle.MSG_CHANNEL_SUCCESS
+ssh.sftp_server.MSG_CHANNEL_SUCCESS
+ssh.sftp_si.MSG_CHANNEL_SUCCESS
+ssh.transport.MSG_CHANNEL_SUCCESS
+ssh.util.MSG_CHANNEL_SUCCESS" class="py-name" href="#" onclick="return doclink('link-56', 'MSG_CHANNEL_SUCCESS', 'link-27');">MSG_CHANNEL_SUCCESS</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-success'</tt><tt class="py-op">,</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">    <tt id="link-57" class="py-name"><a title="ssh.auth_handler.MSG_CHANNEL_FAILURE
+ssh.channel.MSG_CHANNEL_FAILURE
+ssh.client.MSG_CHANNEL_FAILURE
+ssh.common.MSG_CHANNEL_FAILURE
+ssh.dsskey.MSG_CHANNEL_FAILURE
+ssh.hostkeys.MSG_CHANNEL_FAILURE
+ssh.kex_gex.MSG_CHANNEL_FAILURE
+ssh.kex_group1.MSG_CHANNEL_FAILURE
+ssh.packet.MSG_CHANNEL_FAILURE
+ssh.pkey.MSG_CHANNEL_FAILURE
+ssh.rsakey.MSG_CHANNEL_FAILURE
+ssh.server.MSG_CHANNEL_FAILURE
+ssh.sftp.MSG_CHANNEL_FAILURE
+ssh.sftp_attr.MSG_CHANNEL_FAILURE
+ssh.sftp_client.MSG_CHANNEL_FAILURE
+ssh.sftp_file.MSG_CHANNEL_FAILURE
+ssh.sftp_handle.MSG_CHANNEL_FAILURE
+ssh.sftp_server.MSG_CHANNEL_FAILURE
+ssh.sftp_si.MSG_CHANNEL_FAILURE
+ssh.transport.MSG_CHANNEL_FAILURE
+ssh.util.MSG_CHANNEL_FAILURE" class="py-name" href="#" onclick="return doclink('link-57', 'MSG_CHANNEL_FAILURE', 'link-28');">MSG_CHANNEL_FAILURE</a></tt><tt class="py-op">:</tt> <tt class="py-string">'channel-failure'</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">    <tt class="py-op">}</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-comment"># authentication request return codes:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-58" class="py-name" targets="Variable ssh.auth_handler.AUTH_SUCCESSFUL=ssh.auth_handler-module.html#AUTH_SUCCESSFUL,Variable ssh.channel.AUTH_SUCCESSFUL=ssh.channel-module.html#AUTH_SUCCESSFUL,Variable ssh.client.AUTH_SUCCESSFUL=ssh.client-module.html#AUTH_SUCCESSFUL,Variable ssh.common.AUTH_SUCCESSFUL=ssh.common-module.html#AUTH_SUCCESSFUL,Variable ssh.dsskey.AUTH_SUCCESSFUL=ssh.dsskey-module.html#AUTH_SUCCESSFUL,Variable ssh.hostkeys.AUTH_SUCCESSFUL=ssh.hostkeys-module.html#AUTH_SUCCESSFUL,Variable ssh.kex_gex.AUTH_SUCCESSFUL=ssh.kex_gex-module.html#AUTH_SUCCESSFUL,Variable ssh.kex_group1.AUTH_SUCCESSFUL=ssh.kex_group1-module.html#AUTH_SUCCESSFUL,Variable ssh.packet.AUTH_SUCCESSFUL=ssh.packet-module.html#AUTH_SUCCESSFUL,Variable ssh.pkey.AUTH_SUCCESSFUL=ssh.pkey-module.html#AUTH_SUCCESSFUL,Variable ssh.rsakey.AUTH_SUCCESSFUL=ssh.rsakey-module.html#AUTH_SUCCESSFUL,Variable ssh.server.AUTH_SUCCESSFUL=ssh.server-module.html#AUTH_SUCCESSFUL,Variable ssh.sftp.AUTH_SUCCESSFUL=ssh.sftp-module.html#AUTH_SUCCESSFUL,Variable ssh.sftp_attr.AUTH_SUCCESSFUL=ssh.sftp_attr-module.html#AUTH_SUCCESSFUL,Variable ssh.sftp_client.AUTH_SUCCESSFUL=ssh.sftp_client-module.html#AUTH_SUCCESSFUL,Variable ssh.sftp_file.AUTH_SUCCESSFUL=ssh.sftp_file-module.html#AUTH_SUCCESSFUL,Variable ssh.sftp_handle.AUTH_SUCCESSFUL=ssh.sftp_handle-module.html#AUTH_SUCCESSFUL,Variable ssh.sftp_server.AUTH_SUCCESSFUL=ssh.sftp_server-module.html#AUTH_SUCCESSFUL,Variable ssh.sftp_si.AUTH_SUCCESSFUL=ssh.sftp_si-module.html#AUTH_SUCCESSFUL,Variable ssh.transport.AUTH_SUCCESSFUL=ssh.transport-module.html#AUTH_SUCCESSFUL,Variable ssh.util.AUTH_SUCCESSFUL=ssh.util-module.html#AUTH_SUCCESSFUL"><a title="ssh.auth_handler.AUTH_SUCCESSFUL
+ssh.channel.AUTH_SUCCESSFUL
+ssh.client.AUTH_SUCCESSFUL
+ssh.common.AUTH_SUCCESSFUL
+ssh.dsskey.AUTH_SUCCESSFUL
+ssh.hostkeys.AUTH_SUCCESSFUL
+ssh.kex_gex.AUTH_SUCCESSFUL
+ssh.kex_group1.AUTH_SUCCESSFUL
+ssh.packet.AUTH_SUCCESSFUL
+ssh.pkey.AUTH_SUCCESSFUL
+ssh.rsakey.AUTH_SUCCESSFUL
+ssh.server.AUTH_SUCCESSFUL
+ssh.sftp.AUTH_SUCCESSFUL
+ssh.sftp_attr.AUTH_SUCCESSFUL
+ssh.sftp_client.AUTH_SUCCESSFUL
+ssh.sftp_file.AUTH_SUCCESSFUL
+ssh.sftp_handle.AUTH_SUCCESSFUL
+ssh.sftp_server.AUTH_SUCCESSFUL
+ssh.sftp_si.AUTH_SUCCESSFUL
+ssh.transport.AUTH_SUCCESSFUL
+ssh.util.AUTH_SUCCESSFUL" class="py-name" href="#" onclick="return doclink('link-58', 'AUTH_SUCCESSFUL', 'link-58');">AUTH_SUCCESSFUL</a></tt><tt class="py-op">,</tt> <tt id="link-59" class="py-name" targets="Variable ssh.auth_handler.AUTH_PARTIALLY_SUCCESSFUL=ssh.auth_handler-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.channel.AUTH_PARTIALLY_SUCCESSFUL=ssh.channel-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.client.AUTH_PARTIALLY_SUCCESSFUL=ssh.client-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.common.AUTH_PARTIALLY_SUCCESSFUL=ssh.common-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.dsskey.AUTH_PARTIALLY_SUCCESSFUL=ssh.dsskey-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.hostkeys.AUTH_PARTIALLY_SUCCESSFUL=ssh.hostkeys-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.kex_gex.AUTH_PARTIALLY_SUCCESSFUL=ssh.kex_gex-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.kex_group1.AUTH_PARTIALLY_SUCCESSFUL=ssh.kex_group1-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.packet.AUTH_PARTIALLY_SUCCESSFUL=ssh.packet-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.pkey.AUTH_PARTIALLY_SUCCESSFUL=ssh.pkey-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.rsakey.AUTH_PARTIALLY_SUCCESSFUL=ssh.rsakey-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.server.AUTH_PARTIALLY_SUCCESSFUL=ssh.server-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.sftp.AUTH_PARTIALLY_SUCCESSFUL=ssh.sftp-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.sftp_attr.AUTH_PARTIALLY_SUCCESSFUL=ssh.sftp_attr-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.sftp_client.AUTH_PARTIALLY_SUCCESSFUL=ssh.sftp_client-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.sftp_file.AUTH_PARTIALLY_SUCCESSFUL=ssh.sftp_file-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.sftp_handle.AUTH_PARTIALLY_SUCCESSFUL=ssh.sftp_handle-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.sftp_server.AUTH_PARTIALLY_SUCCESSFUL=ssh.sftp_server-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.sftp_si.AUTH_PARTIALLY_SUCCESSFUL=ssh.sftp_si-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.transport.AUTH_PARTIALLY_SUCCESSFUL=ssh.transport-module.html#AUTH_PARTIALLY_SUCCESSFUL,Variable ssh.util.AUTH_PARTIALLY_SUCCESSFUL=ssh.util-module.html#AUTH_PARTIALLY_SUCCESSFUL"><a title="ssh.auth_handler.AUTH_PARTIALLY_SUCCESSFUL
+ssh.channel.AUTH_PARTIALLY_SUCCESSFUL
+ssh.client.AUTH_PARTIALLY_SUCCESSFUL
+ssh.common.AUTH_PARTIALLY_SUCCESSFUL
+ssh.dsskey.AUTH_PARTIALLY_SUCCESSFUL
+ssh.hostkeys.AUTH_PARTIALLY_SUCCESSFUL
+ssh.kex_gex.AUTH_PARTIALLY_SUCCESSFUL
+ssh.kex_group1.AUTH_PARTIALLY_SUCCESSFUL
+ssh.packet.AUTH_PARTIALLY_SUCCESSFUL
+ssh.pkey.AUTH_PARTIALLY_SUCCESSFUL
+ssh.rsakey.AUTH_PARTIALLY_SUCCESSFUL
+ssh.server.AUTH_PARTIALLY_SUCCESSFUL
+ssh.sftp.AUTH_PARTIALLY_SUCCESSFUL
+ssh.sftp_attr.AUTH_PARTIALLY_SUCCESSFUL
+ssh.sftp_client.AUTH_PARTIALLY_SUCCESSFUL
+ssh.sftp_file.AUTH_PARTIALLY_SUCCESSFUL
+ssh.sftp_handle.AUTH_PARTIALLY_SUCCESSFUL
+ssh.sftp_server.AUTH_PARTIALLY_SUCCESSFUL
+ssh.sftp_si.AUTH_PARTIALLY_SUCCESSFUL
+ssh.transport.AUTH_PARTIALLY_SUCCESSFUL
+ssh.util.AUTH_PARTIALLY_SUCCESSFUL" class="py-name" href="#" onclick="return doclink('link-59', 'AUTH_PARTIALLY_SUCCESSFUL', 'link-59');">AUTH_PARTIALLY_SUCCESSFUL</a></tt><tt class="py-op">,</tt> <tt id="link-60" class="py-name" targets="Variable ssh.auth_handler.AUTH_FAILED=ssh.auth_handler-module.html#AUTH_FAILED,Variable ssh.channel.AUTH_FAILED=ssh.channel-module.html#AUTH_FAILED,Variable ssh.client.AUTH_FAILED=ssh.client-module.html#AUTH_FAILED,Variable ssh.common.AUTH_FAILED=ssh.common-module.html#AUTH_FAILED,Variable ssh.dsskey.AUTH_FAILED=ssh.dsskey-module.html#AUTH_FAILED,Variable ssh.hostkeys.AUTH_FAILED=ssh.hostkeys-module.html#AUTH_FAILED,Variable ssh.kex_gex.AUTH_FAILED=ssh.kex_gex-module.html#AUTH_FAILED,Variable ssh.kex_group1.AUTH_FAILED=ssh.kex_group1-module.html#AUTH_FAILED,Variable ssh.packet.AUTH_FAILED=ssh.packet-module.html#AUTH_FAILED,Variable ssh.pkey.AUTH_FAILED=ssh.pkey-module.html#AUTH_FAILED,Variable ssh.rsakey.AUTH_FAILED=ssh.rsakey-module.html#AUTH_FAILED,Variable ssh.server.AUTH_FAILED=ssh.server-module.html#AUTH_FAILED,Variable ssh.sftp.AUTH_FAILED=ssh.sftp-module.html#AUTH_FAILED,Variable ssh.sftp_attr.AUTH_FAILED=ssh.sftp_attr-module.html#AUTH_FAILED,Variable ssh.sftp_client.AUTH_FAILED=ssh.sftp_client-module.html#AUTH_FAILED,Variable ssh.sftp_file.AUTH_FAILED=ssh.sftp_file-module.html#AUTH_FAILED,Variable ssh.sftp_handle.AUTH_FAILED=ssh.sftp_handle-module.html#AUTH_FAILED,Variable ssh.sftp_server.AUTH_FAILED=ssh.sftp_server-module.html#AUTH_FAILED,Variable ssh.sftp_si.AUTH_FAILED=ssh.sftp_si-module.html#AUTH_FAILED,Variable ssh.transport.AUTH_FAILED=ssh.transport-module.html#AUTH_FAILED,Variable ssh.util.AUTH_FAILED=ssh.util-module.html#AUTH_FAILED"><a title="ssh.auth_handler.AUTH_FAILED
+ssh.channel.AUTH_FAILED
+ssh.client.AUTH_FAILED
+ssh.common.AUTH_FAILED
+ssh.dsskey.AUTH_FAILED
+ssh.hostkeys.AUTH_FAILED
+ssh.kex_gex.AUTH_FAILED
+ssh.kex_group1.AUTH_FAILED
+ssh.packet.AUTH_FAILED
+ssh.pkey.AUTH_FAILED
+ssh.rsakey.AUTH_FAILED
+ssh.server.AUTH_FAILED
+ssh.sftp.AUTH_FAILED
+ssh.sftp_attr.AUTH_FAILED
+ssh.sftp_client.AUTH_FAILED
+ssh.sftp_file.AUTH_FAILED
+ssh.sftp_handle.AUTH_FAILED
+ssh.sftp_server.AUTH_FAILED
+ssh.sftp_si.AUTH_FAILED
+ssh.transport.AUTH_FAILED
+ssh.util.AUTH_FAILED" class="py-name" href="#" onclick="return doclink('link-60', 'AUTH_FAILED', 'link-60');">AUTH_FAILED</a></tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-comment"># channel request failed reasons:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-op">(</tt><tt id="link-61" class="py-name" targets="Variable ssh.auth_handler.OPEN_SUCCEEDED=ssh.auth_handler-module.html#OPEN_SUCCEEDED,Variable ssh.channel.OPEN_SUCCEEDED=ssh.channel-module.html#OPEN_SUCCEEDED,Variable ssh.client.OPEN_SUCCEEDED=ssh.client-module.html#OPEN_SUCCEEDED,Variable ssh.common.OPEN_SUCCEEDED=ssh.common-module.html#OPEN_SUCCEEDED,Variable ssh.dsskey.OPEN_SUCCEEDED=ssh.dsskey-module.html#OPEN_SUCCEEDED,Variable ssh.hostkeys.OPEN_SUCCEEDED=ssh.hostkeys-module.html#OPEN_SUCCEEDED,Variable ssh.kex_gex.OPEN_SUCCEEDED=ssh.kex_gex-module.html#OPEN_SUCCEEDED,Variable ssh.kex_group1.OPEN_SUCCEEDED=ssh.kex_group1-module.html#OPEN_SUCCEEDED,Variable ssh.packet.OPEN_SUCCEEDED=ssh.packet-module.html#OPEN_SUCCEEDED,Variable ssh.pkey.OPEN_SUCCEEDED=ssh.pkey-module.html#OPEN_SUCCEEDED,Variable ssh.rsakey.OPEN_SUCCEEDED=ssh.rsakey-module.html#OPEN_SUCCEEDED,Variable ssh.server.OPEN_SUCCEEDED=ssh.server-module.html#OPEN_SUCCEEDED,Variable ssh.sftp.OPEN_SUCCEEDED=ssh.sftp-module.html#OPEN_SUCCEEDED,Variable ssh.sftp_attr.OPEN_SUCCEEDED=ssh.sftp_attr-module.html#OPEN_SUCCEEDED,Variable ssh.sftp_client.OPEN_SUCCEEDED=ssh.sftp_client-module.html#OPEN_SUCCEEDED,Variable ssh.sftp_file.OPEN_SUCCEEDED=ssh.sftp_file-module.html#OPEN_SUCCEEDED,Variable ssh.sftp_handle.OPEN_SUCCEEDED=ssh.sftp_handle-module.html#OPEN_SUCCEEDED,Variable ssh.sftp_server.OPEN_SUCCEEDED=ssh.sftp_server-module.html#OPEN_SUCCEEDED,Variable ssh.sftp_si.OPEN_SUCCEEDED=ssh.sftp_si-module.html#OPEN_SUCCEEDED,Variable ssh.transport.OPEN_SUCCEEDED=ssh.transport-module.html#OPEN_SUCCEEDED,Variable ssh.util.OPEN_SUCCEEDED=ssh.util-module.html#OPEN_SUCCEEDED"><a title="ssh.auth_handler.OPEN_SUCCEEDED
+ssh.channel.OPEN_SUCCEEDED
+ssh.client.OPEN_SUCCEEDED
+ssh.common.OPEN_SUCCEEDED
+ssh.dsskey.OPEN_SUCCEEDED
+ssh.hostkeys.OPEN_SUCCEEDED
+ssh.kex_gex.OPEN_SUCCEEDED
+ssh.kex_group1.OPEN_SUCCEEDED
+ssh.packet.OPEN_SUCCEEDED
+ssh.pkey.OPEN_SUCCEEDED
+ssh.rsakey.OPEN_SUCCEEDED
+ssh.server.OPEN_SUCCEEDED
+ssh.sftp.OPEN_SUCCEEDED
+ssh.sftp_attr.OPEN_SUCCEEDED
+ssh.sftp_client.OPEN_SUCCEEDED
+ssh.sftp_file.OPEN_SUCCEEDED
+ssh.sftp_handle.OPEN_SUCCEEDED
+ssh.sftp_server.OPEN_SUCCEEDED
+ssh.sftp_si.OPEN_SUCCEEDED
+ssh.transport.OPEN_SUCCEEDED
+ssh.util.OPEN_SUCCEEDED" class="py-name" href="#" onclick="return doclink('link-61', 'OPEN_SUCCEEDED', 'link-61');">OPEN_SUCCEEDED</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"> <tt id="link-62" class="py-name" targets="Variable ssh.auth_handler.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.auth_handler-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.channel.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.channel-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.client.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.client-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.common.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.common-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.dsskey.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.dsskey-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.hostkeys.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.hostkeys-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.kex_gex.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.kex_gex-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.kex_group1.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.kex_group1-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.packet.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.packet-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.pkey.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.pkey-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.rsakey.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.rsakey-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.server.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.server-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.sftp.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.sftp-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.sftp_attr.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.sftp_attr-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.sftp_client.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.sftp_client-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.sftp_file.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.sftp_file-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.sftp_handle.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.sftp_handle-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.sftp_server.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.sftp_server-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.sftp_si.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.sftp_si-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.transport.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.transport-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED,Variable ssh.util.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED=ssh.util-module.html#OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED"><a title="ssh.auth_handler.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.channel.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.client.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.common.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.dsskey.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.hostkeys.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.kex_gex.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.kex_group1.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.packet.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.pkey.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.rsakey.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.server.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.sftp.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.sftp_attr.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.sftp_client.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.sftp_file.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.sftp_handle.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.sftp_server.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.sftp_si.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.transport.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+ssh.util.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED" class="py-name" href="#" onclick="return doclink('link-62', 'OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED', 'link-62');">OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> <tt id="link-63" class="py-name" targets="Variable ssh.auth_handler.OPEN_FAILED_CONNECT_FAILED=ssh.auth_handler-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.channel.OPEN_FAILED_CONNECT_FAILED=ssh.channel-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.client.OPEN_FAILED_CONNECT_FAILED=ssh.client-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.common.OPEN_FAILED_CONNECT_FAILED=ssh.common-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.dsskey.OPEN_FAILED_CONNECT_FAILED=ssh.dsskey-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.hostkeys.OPEN_FAILED_CONNECT_FAILED=ssh.hostkeys-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.kex_gex.OPEN_FAILED_CONNECT_FAILED=ssh.kex_gex-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.kex_group1.OPEN_FAILED_CONNECT_FAILED=ssh.kex_group1-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.packet.OPEN_FAILED_CONNECT_FAILED=ssh.packet-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.pkey.OPEN_FAILED_CONNECT_FAILED=ssh.pkey-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.rsakey.OPEN_FAILED_CONNECT_FAILED=ssh.rsakey-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.server.OPEN_FAILED_CONNECT_FAILED=ssh.server-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.sftp.OPEN_FAILED_CONNECT_FAILED=ssh.sftp-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.sftp_attr.OPEN_FAILED_CONNECT_FAILED=ssh.sftp_attr-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.sftp_client.OPEN_FAILED_CONNECT_FAILED=ssh.sftp_client-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.sftp_file.OPEN_FAILED_CONNECT_FAILED=ssh.sftp_file-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.sftp_handle.OPEN_FAILED_CONNECT_FAILED=ssh.sftp_handle-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.sftp_server.OPEN_FAILED_CONNECT_FAILED=ssh.sftp_server-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.sftp_si.OPEN_FAILED_CONNECT_FAILED=ssh.sftp_si-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.transport.OPEN_FAILED_CONNECT_FAILED=ssh.transport-module.html#OPEN_FAILED_CONNECT_FAILED,Variable ssh.util.OPEN_FAILED_CONNECT_FAILED=ssh.util-module.html#OPEN_FAILED_CONNECT_FAILED"><a title="ssh.auth_handler.OPEN_FAILED_CONNECT_FAILED
+ssh.channel.OPEN_FAILED_CONNECT_FAILED
+ssh.client.OPEN_FAILED_CONNECT_FAILED
+ssh.common.OPEN_FAILED_CONNECT_FAILED
+ssh.dsskey.OPEN_FAILED_CONNECT_FAILED
+ssh.hostkeys.OPEN_FAILED_CONNECT_FAILED
+ssh.kex_gex.OPEN_FAILED_CONNECT_FAILED
+ssh.kex_group1.OPEN_FAILED_CONNECT_FAILED
+ssh.packet.OPEN_FAILED_CONNECT_FAILED
+ssh.pkey.OPEN_FAILED_CONNECT_FAILED
+ssh.rsakey.OPEN_FAILED_CONNECT_FAILED
+ssh.server.OPEN_FAILED_CONNECT_FAILED
+ssh.sftp.OPEN_FAILED_CONNECT_FAILED
+ssh.sftp_attr.OPEN_FAILED_CONNECT_FAILED
+ssh.sftp_client.OPEN_FAILED_CONNECT_FAILED
+ssh.sftp_file.OPEN_FAILED_CONNECT_FAILED
+ssh.sftp_handle.OPEN_FAILED_CONNECT_FAILED
+ssh.sftp_server.OPEN_FAILED_CONNECT_FAILED
+ssh.sftp_si.OPEN_FAILED_CONNECT_FAILED
+ssh.transport.OPEN_FAILED_CONNECT_FAILED
+ssh.util.OPEN_FAILED_CONNECT_FAILED" class="py-name" href="#" onclick="return doclink('link-63', 'OPEN_FAILED_CONNECT_FAILED', 'link-63');">OPEN_FAILED_CONNECT_FAILED</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> <tt id="link-64" class="py-name" targets="Variable ssh.auth_handler.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.auth_handler-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.channel.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.channel-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.client.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.client-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.common.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.common-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.dsskey.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.dsskey-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.hostkeys.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.hostkeys-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.kex_gex.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.kex_gex-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.kex_group1.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.kex_group1-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.packet.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.packet-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.pkey.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.pkey-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.rsakey.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.rsakey-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.server.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.server-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.sftp.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.sftp-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.sftp_attr.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.sftp_attr-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.sftp_client.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.sftp_client-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.sftp_file.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.sftp_file-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.sftp_handle.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.sftp_handle-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.sftp_server.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.sftp_server-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.sftp_si.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.sftp_si-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.transport.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.transport-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE,Variable ssh.util.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE=ssh.util-module.html#OPEN_FAILED_UNKNOWN_CHANNEL_TYPE"><a title="ssh.auth_handler.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.channel.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.client.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.common.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.dsskey.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.hostkeys.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.kex_gex.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.kex_group1.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.packet.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.pkey.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.rsakey.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.server.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.sftp.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.sftp_attr.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.sftp_client.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.sftp_file.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.sftp_handle.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.sftp_server.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.sftp_si.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.transport.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE
+ssh.util.OPEN_FAILED_UNKNOWN_CHANNEL_TYPE" class="py-name" href="#" onclick="return doclink('link-64', 'OPEN_FAILED_UNKNOWN_CHANNEL_TYPE', 'link-64');">OPEN_FAILED_UNKNOWN_CHANNEL_TYPE</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> <tt id="link-65" class="py-name" targets="Variable ssh.auth_handler.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.auth_handler-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.channel.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.channel-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.client.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.client-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.common.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.common-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.dsskey.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.dsskey-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.hostkeys.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.hostkeys-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.kex_gex.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.kex_gex-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.kex_group1.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.kex_group1-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.packet.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.packet-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.pkey.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.pkey-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.rsakey.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.rsakey-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.server.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.server-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.sftp.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.sftp-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.sftp_attr.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.sftp_attr-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.sftp_client.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.sftp_client-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.sftp_file.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.sftp_file-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.sftp_handle.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.sftp_handle-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.sftp_server.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.sftp_server-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.sftp_si.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.sftp_si-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.transport.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.transport-module.html#OPEN_FAILED_RESOURCE_SHORTAGE,Variable ssh.util.OPEN_FAILED_RESOURCE_SHORTAGE=ssh.util-module.html#OPEN_FAILED_RESOURCE_SHORTAGE"><a title="ssh.auth_handler.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.channel.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.client.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.common.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.dsskey.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.hostkeys.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.kex_gex.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.kex_group1.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.packet.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.pkey.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.rsakey.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.server.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.sftp.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.sftp_attr.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.sftp_client.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.sftp_file.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.sftp_handle.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.sftp_server.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.sftp_si.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.transport.OPEN_FAILED_RESOURCE_SHORTAGE
+ssh.util.OPEN_FAILED_RESOURCE_SHORTAGE" class="py-name" href="#" onclick="return doclink('link-65', 'OPEN_FAILED_RESOURCE_SHORTAGE', 'link-65');">OPEN_FAILED_RESOURCE_SHORTAGE</a></tt><tt class="py-op">)</tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">5</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt id="link-66" class="py-name" targets="Variable ssh.common.CONNECTION_FAILED_CODE=ssh.common-module.html#CONNECTION_FAILED_CODE"><a title="ssh.common.CONNECTION_FAILED_CODE" class="py-name" href="#" onclick="return doclink('link-66', 'CONNECTION_FAILED_CODE', 'link-66');">CONNECTION_FAILED_CODE</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-number">1</tt><tt class="py-op">:</tt> <tt class="py-string">'Administratively prohibited'</tt><tt class="py-op">,</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-number">2</tt><tt class="py-op">:</tt> <tt class="py-string">'Connect failed'</tt><tt class="py-op">,</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-number">3</tt><tt class="py-op">:</tt> <tt class="py-string">'Unknown channel type'</tt><tt class="py-op">,</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-number">4</tt><tt class="py-op">:</tt> <tt class="py-string">'Resource shortage'</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-op">}</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt id="link-67" class="py-name" targets="Variable ssh.auth_handler.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.auth_handler-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.channel.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.channel-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.client.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.client-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.common.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.common-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.dsskey.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.dsskey-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.hostkeys.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.hostkeys-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.kex_gex.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.kex_gex-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.kex_group1.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.kex_group1-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.packet.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.packet-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.pkey.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.pkey-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.rsakey.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.rsakey-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.server.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.server-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.sftp.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.sftp-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.sftp_attr.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.sftp_attr-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.sftp_client.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.sftp_client-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.sftp_file.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.sftp_file-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.sftp_handle.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.sftp_handle-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.sftp_server.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.sftp_server-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.sftp_si.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.sftp_si-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.transport.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.transport-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE,Variable ssh.util.DISCONNECT_SERVICE_NOT_AVAILABLE=ssh.util-module.html#DISCONNECT_SERVICE_NOT_AVAILABLE"><a title="ssh.auth_handler.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.channel.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.client.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.common.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.dsskey.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.hostkeys.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.kex_gex.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.kex_group1.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.packet.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.pkey.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.rsakey.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.server.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.sftp.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.sftp_attr.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.sftp_client.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.sftp_file.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.sftp_handle.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.sftp_server.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.sftp_si.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.transport.DISCONNECT_SERVICE_NOT_AVAILABLE
+ssh.util.DISCONNECT_SERVICE_NOT_AVAILABLE" class="py-name" href="#" onclick="return doclink('link-67', 'DISCONNECT_SERVICE_NOT_AVAILABLE', 'link-67');">DISCONNECT_SERVICE_NOT_AVAILABLE</a></tt><tt class="py-op">,</tt> <tt id="link-68" class="py-name" targets="Variable ssh.auth_handler.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.auth_handler-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.channel.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.channel-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.client.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.client-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.common.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.common-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.dsskey.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.dsskey-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.hostkeys.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.hostkeys-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.kex_gex.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.kex_gex-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.kex_group1.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.kex_group1-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.packet.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.packet-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.pkey.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.pkey-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.rsakey.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.rsakey-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.server.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.server-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.sftp.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.sftp-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.sftp_attr.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.sftp_attr-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.sftp_client.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.sftp_client-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.sftp_file.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.sftp_file-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.sftp_handle.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.sftp_handle-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.sftp_server.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.sftp_server-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.sftp_si.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.sftp_si-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.transport.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.transport-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER,Variable ssh.util.DISCONNECT_AUTH_CANCELLED_BY_USER=ssh.util-module.html#DISCONNECT_AUTH_CANCELLED_BY_USER"><a title="ssh.auth_handler.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.channel.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.client.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.common.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.dsskey.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.hostkeys.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.kex_gex.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.kex_group1.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.packet.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.pkey.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.rsakey.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.server.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.sftp.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.sftp_attr.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.sftp_client.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.sftp_file.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.sftp_handle.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.sftp_server.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.sftp_si.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.transport.DISCONNECT_AUTH_CANCELLED_BY_USER
+ssh.util.DISCONNECT_AUTH_CANCELLED_BY_USER" class="py-name" href="#" onclick="return doclink('link-68', 'DISCONNECT_AUTH_CANCELLED_BY_USER', 'link-68');">DISCONNECT_AUTH_CANCELLED_BY_USER</a></tt><tt class="py-op">,</tt> \ </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt id="link-69" class="py-name" targets="Variable ssh.auth_handler.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.auth_handler-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.channel.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.channel-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.client.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.client-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.common.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.common-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.dsskey.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.dsskey-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.hostkeys.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.hostkeys-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.kex_gex.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.kex_gex-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.kex_group1.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.kex_group1-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.packet.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.packet-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.pkey.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.pkey-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.rsakey.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.rsakey-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.server.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.server-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.sftp.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.sftp-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.sftp_attr.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.sftp_attr-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.sftp_client.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.sftp_client-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.sftp_file.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.sftp_file-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.sftp_handle.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.sftp_handle-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.sftp_server.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.sftp_server-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.sftp_si.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.sftp_si-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.transport.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.transport-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE,Variable ssh.util.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE=ssh.util-module.html#DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE"><a title="ssh.auth_handler.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.channel.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.client.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.common.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.dsskey.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.hostkeys.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.kex_gex.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.kex_group1.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.packet.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.pkey.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.rsakey.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.server.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.sftp.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.sftp_attr.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.sftp_client.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.sftp_file.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.sftp_handle.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.sftp_server.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.sftp_si.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.transport.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE
+ssh.util.DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE" class="py-name" href="#" onclick="return doclink('link-69', 'DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE', 'link-69');">DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">7</tt><tt class="py-op">,</tt> <tt class="py-number">13</tt><tt class="py-op">,</tt> <tt class="py-number">14</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Crypto</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Random</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-comment"># keep a crypto-strong PRNG nearby</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-70" class="py-name" targets="Variable ssh.common.rng=ssh.common-module.html#rng"><a title="ssh.common.rng" class="py-name" href="#" onclick="return doclink('link-70', 'rng', 'link-70');">rng</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Random</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name" targets="Class Method ssh.util.Counter.new()=ssh.util.Counter-class.html#new"><a title="ssh.util.Counter.new" class="py-name" href="#" onclick="return doclink('link-71', 'new', 'link-71');">new</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">version_info</tt> <tt class="py-op">&lt;</tt> <tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt id="link-72" class="py-name" targets="Module ssh.logging22=ssh.logging22-module.html"><a title="ssh.logging22" class="py-name" href="#" onclick="return doclink('link-72', 'logging22', 'link-72');">logging22</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">select</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt id="link-73" class="py-name" targets="Variable ssh.common.PY22=ssh.common-module.html#PY22"><a title="ssh.common.PY22" class="py-name" href="#" onclick="return doclink('link-73', 'PY22', 'link-73');">PY22</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">socket</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">socket</tt><tt class="py-op">,</tt> <tt class="py-string">'timeout'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="timeout"></a><div id="timeout-def"><a name="L114"></a><tt class="py-lineno">114</tt> <a class="py-toggle" href="#" id="timeout-toggle" onclick="return toggle('timeout');">-</a><tt class="py-line">        <tt class="py-keyword">class</tt> <a class="py-def-name" href="ssh.common.timeout-class.html">timeout</a><tt class="py-op">(</tt><tt class="py-base-class">socket</tt><tt class="py-op">.</tt><tt class="py-base-class">error</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-name">socket</tt><tt class="py-op">.</tt><tt class="py-name">timeout</tt> <tt class="py-op">=</tt> <tt class="py-name">timeout</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">del</tt> <tt class="py-name">timeout</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">    <tt id="link-74" class="py-name"><a title="ssh.common.PY22" class="py-name" href="#" onclick="return doclink('link-74', 'PY22', 'link-73');">PY22</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt id="link-75" class="py-name" targets="Variable ssh.common.DEBUG=ssh.common-module.html#DEBUG,Variable ssh.logging22.DEBUG=ssh.logging22-module.html#DEBUG"><a title="ssh.common.DEBUG
+ssh.logging22.DEBUG" class="py-name" href="#" onclick="return doclink('link-75', 'DEBUG', 'link-75');">DEBUG</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="ssh.common.DEBUG
+ssh.logging22.DEBUG" class="py-name" href="#" onclick="return doclink('link-76', 'DEBUG', 'link-75');">DEBUG</a></tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt id="link-77" class="py-name" targets="Variable ssh.common.INFO=ssh.common-module.html#INFO,Variable ssh.logging22.INFO=ssh.logging22-module.html#INFO"><a title="ssh.common.INFO
+ssh.logging22.INFO" class="py-name" href="#" onclick="return doclink('link-77', 'INFO', 'link-77');">INFO</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="ssh.common.INFO
+ssh.logging22.INFO" class="py-name" href="#" onclick="return doclink('link-78', 'INFO', 'link-77');">INFO</a></tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt id="link-79" class="py-name" targets="Variable ssh.common.WARNING=ssh.common-module.html#WARNING,Variable ssh.logging22.WARNING=ssh.logging22-module.html#WARNING"><a title="ssh.common.WARNING
+ssh.logging22.WARNING" class="py-name" href="#" onclick="return doclink('link-79', 'WARNING', 'link-79');">WARNING</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="ssh.common.WARNING
+ssh.logging22.WARNING" class="py-name" href="#" onclick="return doclink('link-80', 'WARNING', 'link-79');">WARNING</a></tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt id="link-81" class="py-name" targets="Variable ssh.common.ERROR=ssh.common-module.html#ERROR,Variable ssh.logging22.ERROR=ssh.logging22-module.html#ERROR"><a title="ssh.common.ERROR
+ssh.logging22.ERROR" class="py-name" href="#" onclick="return doclink('link-81', 'ERROR', 'link-81');">ERROR</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="ssh.common.ERROR
+ssh.logging22.ERROR" class="py-name" href="#" onclick="return doclink('link-82', 'ERROR', 'link-81');">ERROR</a></tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt id="link-83" class="py-name" targets="Variable ssh.common.CRITICAL=ssh.common-module.html#CRITICAL,Variable ssh.logging22.CRITICAL=ssh.logging22-module.html#CRITICAL"><a title="ssh.common.CRITICAL
+ssh.logging22.CRITICAL" class="py-name" href="#" onclick="return doclink('link-83', 'CRITICAL', 'link-83');">CRITICAL</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name"><a title="ssh.common.CRITICAL
+ssh.logging22.CRITICAL" class="py-name" href="#" onclick="return doclink('link-84', 'CRITICAL', 'link-83');">CRITICAL</a></tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-comment"># Common IO/select/etc sleep period, in seconds</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-85" class="py-name" targets="Variable ssh.common.io_sleep=ssh.common-module.html#io_sleep,Variable ssh.io_sleep=ssh-module.html#io_sleep"><a title="ssh.common.io_sleep
+ssh.io_sleep" class="py-name" href="#" onclick="return doclink('link-85', 'io_sleep', 'link-85');">io_sleep</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0.01</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="ssh-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Feb 11 13:47:02 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

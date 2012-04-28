@@ -1,0 +1,19 @@
+Base for django projects
+
+Version:
+
+Django - 1.3
+Bootstrap - 1.2
+
+Requires:
+   * sqlite
+   * Django-extensions - https://github.com/django-extensions/django-extensions
+   * Werkzeug - http://werkzeug.pocoo.org/
+   * Django-registration - https://bitbucket.org/ubernostrum/django-registration/
+   * Django-evolution - http://code.google.com/p/django-evolution/
+
+Optional:
+
+   * Fabric
+
+https://github.com/django-extensions/django-extensions
